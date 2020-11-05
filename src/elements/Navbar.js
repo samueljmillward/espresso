@@ -2,19 +2,21 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <Nav>
       <Logo href="">
         Es<span>presso</span>
       </Logo>
 
-      <Icon>
+      <Icon onClick={() => setIsOpen(!isOpen)}>
         <span />
         <span />
         <span />
       </Icon>
 
-      <Menu>
+      <Menu isOpen={isOpen}>
         <MenuLink href="">Your Beans</MenuLink>
         <MenuLink href="">Pull A Shot</MenuLink>
       </Menu>
@@ -84,4 +86,12 @@ const Menu = styled.div`
   justify-content: space-between;
   align-items: center;
   position: relative;
+
+  @media (max-width: 768px) {
+    overflow: hidden;
+    flex-direction: column;
+    max-height: ${({ isOpen }) => (isOpen ? "300px" : "0")};
+    transition: max-height 0.3s ease-in;
+    width: 100%;
+  }
 `;
