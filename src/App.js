@@ -1,14 +1,18 @@
-import React from "react";
+import React from 'react';
 
-import Navbar from "./elements/Navbar";
+import Navbar from './elements/Navbar';
+import GlobalStyle from './styles/GlobalStyle';
 
-import { AppStyled } from "./styles/StyledApp";
+import { AppStyled } from './styles/StyledApp';
 
 const App = () => {
   return (
-    <AppStyled>
-      <Navbar />
-    </AppStyled>
+    <>
+      <GlobalStyle />
+      <AppStyled>
+        <Navbar />
+      </AppStyled>
+    </>
   );
 };
 
