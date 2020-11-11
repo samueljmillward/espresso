@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button, TextField, Grid, InputAdornment } from '@material-ui/core';
-// import Hidden from '@material-ui/core/Hidden';
 import { AccountCircle, LockRounded } from '@material-ui/icons';
 
 import espresso from '../images/espresso.jpg';
@@ -9,13 +8,6 @@ const Login = () => {
   return (
     <div>
       <Grid container style={{ minheight: '100vh' }}>
-        <Grid item xs={12} sm={6}>
-          <img
-            src={espresso}
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-            alt="background"
-          />
-        </Grid>
         <Grid
           container
           item
@@ -71,6 +63,18 @@ const Login = () => {
             <Button variant="outlined">Forgot Password?</Button>
           </Grid>
           <div />
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          sm={6}
+          display={{ xs: 'none', lg: 'block', xl: 'none' }}
+        >
+          <img
+            src={espresso}
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            alt="background"
+          />
         </Grid>
       </Grid>
     </div>
