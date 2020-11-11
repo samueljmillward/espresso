@@ -1,10 +1,9 @@
 import React from 'react';
 
 import GlobalFonts from './styles/GlobalStyle';
-
-import Navbar from './elements/Navbar';
 import GlobalStyle from './styles/GlobalStyle';
 import Login from './pages/login';
+import Navbar from './elements/Navbar';
 
 import { AppStyled } from './styles/StyledApp';
 
