@@ -19,6 +19,7 @@ const Navbar = () => {
       <Menu isOpen={isOpen}>
         <MenuLink href="">My Beans</MenuLink>
         <MenuLink href="">Pull A Shot</MenuLink>
+        <MenuLink href="/login">Login</MenuLink>
       </Menu>
     </Nav>
   );
