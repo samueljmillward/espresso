@@ -43,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    backgroundColor: '#bb4d00',
   },
 }));
 
@@ -112,7 +113,7 @@ export default function Register() {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
+            color="#ba4c00"
             className={classes.submit}
           >
             Sign Up

@@ -21,7 +21,7 @@ const Login = () => {
             alignItems="center"
             direction="column"
             justify="space-between"
-            style={{ padding: 10 }}
+            style={{ padding: 40 }}
           >
             <div />
             <div
@@ -59,7 +59,7 @@ const Login = () => {
                 }}
               />
               <div style={{ height: 20 }} />
-              <Button variant="contained" style={{ marginBottom: '.2rem' }}>
+              <Button variant="contained" style={{ marginBottom: '.8rem' }}>
                 Log In
               </Button>
               <Button variant="outlined" component={RouterLink} to="/register">
