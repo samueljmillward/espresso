@@ -43,6 +43,7 @@ const Login = () => {
                 <TextField
                   inputRef={register({ required: true, maxLength: 20 })}
                   name="Username"
+                  id="Username"
                   label="Username"
                   margin="normal"
                   InputProps={{
@@ -56,6 +57,7 @@ const Login = () => {
                 <TextField
                   inputRef={register({ required: true })}
                   name="Password"
+                  id="Password"
                   label="Password"
                   type="password"
                   margin="normal"
