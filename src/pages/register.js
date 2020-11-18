@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Register() {
   const classes = useStyles();
-  const { register, errors, handleSubmit } = useForm({ mode: 'onChange' });
+  const { register, handleSubmit } = useForm({ mode: 'onChange' });
   const onSubmit = (data) => console.log(data);
 
   return (
@@ -137,7 +137,7 @@ export default function Register() {
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="/login" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>
