@@ -90,7 +90,13 @@ export default function Register() {
             </Grid>
             <Grid item xs={12}>
               <TextField
-                inputRef={register({ required: true })}
+                inputRef={register({
+                  required: 'You must provide the email address!',
+                  pattern: {
+                    value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                    message: 'You must provide a valid email address!',
+                  },
+                })}
                 variant="outlined"
                 required
                 fullWidth
@@ -102,7 +108,13 @@ export default function Register() {
             </Grid>
             <Grid item xs={12}>
               <TextField
-                inputRef={register({ required: true })}
+                inputRef={register({
+                  required: 'You must provide a password.',
+                  minLength: {
+                    value: 6,
+                    message: 'Your password must be greater than 6 characters',
+                  },
+                })}
                 variant="outlined"
                 required
                 fullWidth
