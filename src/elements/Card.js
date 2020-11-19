@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
+import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
@@ -12,13 +13,16 @@ import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
+import beans from '../images/beans.jpg';
+
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    maxWidth: 450,
+    minWidth: 100,
     background: 'burlywood',
   },
   media: {
-    height: 0,
+    height: 140,
     paddingTop: '56.25%', // 16:9
   },
   expand: {
@@ -54,6 +58,12 @@ export default function BeanCard() {
         }
         title="House Espresso"
         subheader="Roasted on: September 14"
+      />
+      <CardMedia
+        component="img"
+        style={{ height: '300px' }}
+        src={beans}
+        title="House Espresso"
       />
       <CardContent>
         <Typography
