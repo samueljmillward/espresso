@@ -26,24 +26,26 @@ function Copyright() {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(8),
+    height: '100vh',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    background: '#c46404',
     padding: '24px',
   },
   avatar: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(3),
     backgroundColor: 'burlywood',
   },
   form: {
     width: '100%',
-    marginTop: theme.spacing(3),
+    // marginTop: theme.spacing(3),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
     backgroundColor: '#bb4d00',
+  },
+  title: {
+    marginBottom: '2.2rem',
   },
 }));
 
@@ -53,12 +55,12 @@ export default function Register() {
   const onSubmit = (data) => console.log(data);
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container className={classes.contaienr} component="main" maxWidth="xs">
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography className={classes.title} component="h1" variant="h5">
           Sign up
         </Typography>
         <form className="form" onSubmit={handleSubmit(onSubmit)} noValidate>
