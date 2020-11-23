@@ -1,17 +1,28 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
 import Navbar from '../elements/Navbar';
 import BeanCard from '../elements/Card';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   gridContainer: {
     paddingTop: '40px',
     paddingLeft: '40px',
     paddingRight: '40px',
   },
-});
+  root: {
+    '& > *': {
+      margin: theme.spacing(1),
+    },
+  },
+  addButton: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    padding: '32px',
+  },
+}));
 
 export default function Beans() {
   const classes = useStyles();
@@ -37,6 +48,17 @@ export default function Beans() {
           <BeanCard />
         </Grid>
       </Grid>
+      <AddButton />
     </>
+  );
+}
+
+export function AddButton() {
+  const classes = useStyles();
+
+  return (
+    <div className={classes.addButton}>
+      <Button variant="contained">New Bean</Button>
+    </div>
   );
 }
