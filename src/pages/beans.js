@@ -1,10 +1,10 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 
 import Navbar from '../elements/Navbar';
 import BeanCard from '../elements/Card';
+import NewBean from '../elements/NewBean';
 
 const useStyles = makeStyles((theme) => ({
   gridContainer: {
@@ -48,17 +48,7 @@ export default function Beans() {
           <BeanCard />
         </Grid>
       </Grid>
-      <AddButton />
+      <NewBean className={classes.addButton} />
     </>
-  );
-}
-
-export function AddButton() {
-  const classes = useStyles();
-
-  return (
-    <div className={classes.addButton}>
-      <Button variant="contained">New Bean</Button>
-    </div>
   );
 }
