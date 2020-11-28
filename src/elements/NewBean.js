@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NewBean() {
+export default function NewBean({ setBeansList }) {
   const classes = useStyles();
 
   const { register, handleSubmit, control } = useForm();
@@ -36,6 +36,7 @@ export default function NewBean() {
     handleClose();
     console.clear();
     console.log({ data });
+    setBeansList((old) => [...old, data]);
   };
 
   const [open, setOpen] = React.useState(false);

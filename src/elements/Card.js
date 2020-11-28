@@ -5,7 +5,6 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 // import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
-import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -35,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function BeanCard() {
+export default function BeanCard({ bean }) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -51,15 +50,20 @@ export default function BeanCard() {
           color="textSecondary"
           gutterBottom
         >
-          Roasted on: 18th November.
+          Roasted on: {bean.roast}
         </Typography>
         <Typography variant="h5" component="h2">
-          House Espresso
+          {bean.name}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          Ethiopia
+          {bean.origin}
           <br />
-          caramel, dark chocolate, toffee
+        </Typography>
+        <Typography className={classes.pos} color="textSecondary">
+          {bean.flavours}
+        </Typography>
+        <Typography className={classes.pos} color="textSecondary">
+          {bean.weight}g
         </Typography>
       </CardContent>
       {/* <CardMedia
@@ -83,29 +87,6 @@ export default function BeanCard() {
           <ExpandMoreIcon />
         </IconButton>
       </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography variant="body2" component="p">
-            Grind: 6
-          </Typography>
-          <Typography className={classes.pos} variant="body2" component="p">
-            <br />
-            Recipe
-            <br />
-            Dry: 18g
-            <br />
-            Final Weight: 36g
-          </Typography>
-          <Typography variant="body2" component="p">
-            Our house espresso is a modern take on a classic. It’s a blend of
-            two distinctive coffees, which combine to produce an espresso with a
-            deep, rich chocolatey body, pronounced toffee sweetness, a complex
-            fruity edge, and a hint of bittersweet cocoa at the finish. It’s
-            well balanced and combines beautifully with milk, where it adds
-            punchy caramel, smooth milk chocolate notes and gets even sweeter
-          </Typography>
-        </CardContent>
-      </Collapse>
     </Card>
   );
 }

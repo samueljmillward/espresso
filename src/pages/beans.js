@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -26,8 +26,41 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Beans() {
   const classes = useStyles();
+
+  const [beans, setBeansList] = useState([
+    {
+      name: 'bean1',
+      roastDate: '2020-11-28',
+      origin: 'Ethiopia',
+      flavours: 'caramel, bergamot, clementine',
+      weight: '250',
+    },
+    {
+      name: 'bean1',
+      roastDate: '2020-11-28',
+      origin: 'Ethiopia',
+      flavours: 'caramel, bergamot, clementine',
+      weight: '250',
+    },
+    {
+      name: 'bean1',
+      roastDate: '2020-11-28',
+      origin: 'Ethiopia',
+      flavours: 'caramel, bergamot, clementine',
+      weight: '250',
+    },
+    {
+      name: 'bean1',
+      roastDate: '2020-11-28',
+      origin: 'Ethiopia',
+      flavours: 'caramel, bergamot, clementine',
+      weight: '250',
+    },
+  ]);
+
   return (
     <>
+      {console.log(beans)}
       <Navbar />
       <Grid
         container
@@ -35,20 +68,13 @@ export default function Beans() {
         className={classes.gridContainer}
         justify="center"
       >
-        <Grid item xs={12} sm={6} m={4}>
-          <BeanCard />
-        </Grid>
-        <Grid item xs={12} sm={6} m={4}>
-          <BeanCard />
-        </Grid>
-        <Grid item xs={12} sm={6} m={4}>
-          <BeanCard />
-        </Grid>
-        <Grid item xs={12} sm={6} m={4}>
-          <BeanCard />
-        </Grid>
+        {beans.map((bean) => (
+          <Grid item xs={12} sm={6} m={4}>
+            <BeanCard bean={bean} />
+          </Grid>
+        ))}
       </Grid>
-      <NewBean className={classes.addButton} />
+      <NewBean setBeansList={setBeansList} className={classes.addButton} />
     </>
   );
 }
