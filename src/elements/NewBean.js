@@ -34,7 +34,8 @@ export default function NewBean() {
 
   const onSubmit = (data) => {
     handleClose();
-    console.log(data);
+    console.clear();
+    console.log({ data });
   };
 
   const [open, setOpen] = React.useState(false);
@@ -74,16 +75,17 @@ export default function NewBean() {
         aria-labelledby="form-dialog-title"
       >
         <DialogTitle id="form-dialog-title">New Bean</DialogTitle>
-        <DialogContent>
-          {/* <DialogContentText>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <DialogContent>
+            {/* <DialogContentText>
             To subscribe to this website, please enter your email address here.
             We will send updates occasionally.
           </DialogContentText> */}
-          <form onSubmit={handleSubmit(onSubmit)}>
             <TextField
               autoFocus
               margin="dense"
               inputRef={register}
+              name="name"
               id="name"
               label="Name"
               type="text"
@@ -93,6 +95,7 @@ export default function NewBean() {
               autoFocus
               margin="dense"
               inputRef={register}
+              name="origin"
               id="origin"
               label="Origin"
               type="text"
@@ -100,11 +103,15 @@ export default function NewBean() {
             />
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
               <Grid container justify="space-around">
-                <KeyboardDatePicker
+                <Controller
+                  as={<KeyboardDatePicker />}
                   disableToolbar
                   variant="inline"
                   format="MM/dd/yyyy"
                   margin="normal"
+                  name="roastDate"
+                  control={control}
+                  defaultValue="2020-11-28"
                   id="date-picker-inline"
                   label="Date picker inline"
                   value={selectedDate}
@@ -117,6 +124,8 @@ export default function NewBean() {
                 <TextField
                   autoFocus
                   margin="dense"
+                  inputRef={register}
+                  name="flavours"
                   id="flavours"
                   label="Flavours"
                   type="text"
@@ -124,9 +133,13 @@ export default function NewBean() {
                 />
               </Grid>
             </MuiPickersUtilsProvider>
-            <OutlinedInput
+            <Controller
+              as={<OutlinedInput />}
               id="outlined-adornment-weight"
               onChange={handleChange('weight')}
+              name="weight"
+              control={control}
+              defaultValue="0"
               endAdornment={<InputAdornment position="end">g</InputAdornment>}
               aria-describedby="outlined-weight-helper-text"
               inputProps={{
@@ -137,16 +150,16 @@ export default function NewBean() {
             <FormHelperText id="outlined-weight-helper-text">
               Weight
             </FormHelperText>
-          </form>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Cancel
-          </Button>
-          <Button type="submit" onClick={onSubmit} color="primary">
-            Submit
-          </Button>
-        </DialogActions>
+            <DialogActions>
+              <Button onClick={handleClose} color="primary">
+                Cancel
+              </Button>
+              <Button type="submit" color="primary">
+                Submit
+              </Button>
+            </DialogActions>
+          </DialogContent>
+        </form>
       </Dialog>
     </div>
   );
