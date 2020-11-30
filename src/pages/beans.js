@@ -29,31 +29,31 @@ export default function Beans() {
 
   const [beans, setBeansList] = useState([
     {
-      name: 'bean1',
+      name: 'House Espresso',
       roastDate: '2020-11-28',
-      origin: 'Ethiopia',
-      flavours: 'caramel, bergamot, clementine',
+      origin: 'Blend',
+      flavours: 'Caramel, Bergamot, Clementine',
       weight: '250',
     },
     {
-      name: 'bean1',
+      name: 'Sitio Da Torre',
       roastDate: '2020-11-28',
-      origin: 'Ethiopia',
-      flavours: 'caramel, bergamot, clementine',
+      origin: 'Brazil',
+      flavours: 'Caramel, Bergamot, Clementine',
       weight: '250',
     },
     {
-      name: 'bean1',
+      name: 'Pacamura',
       roastDate: '2020-11-28',
       origin: 'Ethiopia',
-      flavours: 'caramel, bergamot, clementine',
+      flavours: 'Caramel, Bergamot, Clementine',
       weight: '250',
     },
     {
-      name: 'bean1',
+      name: 'San Lorenzo',
       roastDate: '2020-11-28',
-      origin: 'Ethiopia',
-      flavours: 'caramel, bergamot, clementine',
+      origin: 'Guatemala',
+      flavours: 'Caramel, Bergamot, Clementine',
       weight: '250',
     },
   ]);

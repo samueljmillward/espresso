@@ -5,6 +5,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 // import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
+import Container from '@material-ui/core/Container';
 import IconButton from '@material-ui/core/IconButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -32,6 +33,15 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
+  container: {
+    margin: 0,
+    padding: 0,
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+  paddingTop: {
+    paddingTop: 0,
+  },
 }));
 
 export default function BeanCard({ bean }) {
@@ -57,14 +67,11 @@ export default function BeanCard({ bean }) {
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
           {bean.origin}
-          <br />
         </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          {bean.flavours}
-        </Typography>
-        <Typography className={classes.pos} color="textSecondary">
-          {bean.weight}g
-        </Typography>
+        <Container className={classes.container}>
+          <Typography color="textSecondary">{bean.flavours}</Typography>
+          <Typography color="textSecondary">{bean.weight}g</Typography>
+        </Container>
       </CardContent>
       {/* <CardMedia
         component="img"
@@ -72,7 +79,7 @@ export default function BeanCard({ bean }) {
         src={beans}
         title="House Espresso"
       /> */}
-      <CardActions>
+      <CardActions className={classes.paddingTop}>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
         </IconButton>
