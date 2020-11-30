@@ -60,7 +60,7 @@ export default function BeanCard({ bean }) {
           color="textSecondary"
           gutterBottom
         >
-          Roasted on: {bean.roast}
+          Roasted on: {bean.roastDate}
         </Typography>
         <Typography variant="h5" component="h2">
           {bean.name}
