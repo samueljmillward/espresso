@@ -52,7 +52,11 @@ const useStyles = makeStyles((theme) => ({
 export default function Register() {
   const classes = useStyles();
   const { register, handleSubmit } = useForm({ mode: 'onChange' });
-  const onSubmit = (data) => console.log(data);
+
+  const onSubmit = (data) => {
+    console.clear();
+    console.log({ data });
+  };
 
   return (
     <Container className={classes.contaienr} component="main" maxWidth="xs">
@@ -67,7 +71,11 @@ export default function Register() {
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField
-                inputRef={register({ required: true })}
+                inputRef={register({
+                  required: true,
+                  maxLength: 50,
+                  pattern: /^[A-Za-z]+$/i,
+                })}
                 autoComplete="fname"
                 name="firstName"
                 variant="outlined"
@@ -80,7 +88,11 @@ export default function Register() {
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
-                inputRef={register({ required: true })}
+                inputRef={register({
+                  required: true,
+                  maxLength: 50,
+                  pattern: /^[A-Za-z]+$/i,
+                })}
                 variant="outlined"
                 required
                 fullWidth
@@ -93,11 +105,9 @@ export default function Register() {
             <Grid item xs={12}>
               <TextField
                 inputRef={register({
-                  required: 'You must provide the email address!',
-                  pattern: {
-                    value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                    message: 'You must provide a valid email address!',
-                  },
+                  required: true,
+                  maxLength: 65,
+                  pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
                 })}
                 variant="outlined"
                 required
@@ -111,10 +121,9 @@ export default function Register() {
             <Grid item xs={12}>
               <TextField
                 inputRef={register({
-                  required: 'You must provide a password.',
+                  required: true,
                   minLength: {
-                    value: 6,
-                    message: 'Your password must be greater than 6 characters',
+                    value: 8,
                   },
                 })}
                 variant="outlined"
@@ -132,7 +141,7 @@ export default function Register() {
             type="submit"
             fullWidth
             variant="contained"
-            color="#ba4c00"
+            color="primary"
             className={classes.submit}
           >
             Sign Up

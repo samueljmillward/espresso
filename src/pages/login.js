@@ -9,7 +9,11 @@ import espresso from '../images/espresso.jpg';
 
 const Login = () => {
   const { register, handleSubmit } = useForm({ mode: 'onChange' });
-  const onSubmit = (data) => console.log(data);
+
+  const onSubmit = (data) => {
+    console.clear();
+    console.log({ data });
+  };
 
   return (
     <div>
@@ -38,8 +42,12 @@ const Login = () => {
                 <h2 style={{ color: 'burlywood' }}>Espresso Tracker</h2>
               </Grid>
               <TextField
-                inputRef={register({ required: true, maxLength: 20 })}
-                name="Username"
+                inputRef={register({
+                  required: true,
+                  maxLength: 65,
+                  pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                })}
+                name="username"
                 id="Username"
                 label="Username"
                 margin="normal"
@@ -52,8 +60,13 @@ const Login = () => {
                 }}
               />
               <TextField
-                inputRef={register({ required: true })}
-                name="Password"
+                inputRef={register({
+                  required: true,
+                  minLength: {
+                    value: 8,
+                  },
+                })}
+                name="password"
                 id="Password"
                 label="Password"
                 type="password"
