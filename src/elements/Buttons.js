@@ -5,10 +5,17 @@ import Typography from '@material-ui/core/Typography';
 
 import { Link as RouterLink } from 'react-router-dom';
 
-const images = [
+const buttons = [
   {
     url: '/images/beans.jpg',
+    to: '/beans',
     title: 'My Beans',
+    width: '50%',
+  },
+  {
+    url: '/images/machine.jpg',
+    to: '/brew',
+    title: 'Pull A Shot',
     width: '50%',
   },
 ];
@@ -96,11 +103,11 @@ export default function ButtonBases() {
 
   return (
     <div className={classes.root}>
-      {images.map((image) => (
+      {buttons.map((image) => (
         <>
           <ButtonBase
             component={RouterLink}
-            to="/beans"
+            to={image.to}
             focusRipple
             key={image.title}
             className={classes.image}

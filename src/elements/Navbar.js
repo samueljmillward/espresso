@@ -6,7 +6,7 @@ const Navbar = () => {
 
   return (
     <Nav>
-      <Logo href="">
+      <Logo href="/">
         Es<span>presso</span>
       </Logo>
 
@@ -18,7 +18,7 @@ const Navbar = () => {
 
       <Menu isOpen={isOpen}>
         <MenuLink href="/beans">My Beans</MenuLink>
-        <MenuLink href="">Pull A Shot</MenuLink>
+        <MenuLink href="/brew">Pull A Shot</MenuLink>
         <MenuLink href="/login">Login</MenuLink>
       </Menu>
     </Nav>
