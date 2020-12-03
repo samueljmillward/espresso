@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+import { Link as RouterLink } from 'react-router-dom';
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Nav>
-      <Logo href="/">
+      <Logo href="/" component={RouterLink}>
         Es<span>presso</span>
       </Logo>
 
