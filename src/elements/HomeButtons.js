@@ -23,12 +23,15 @@ const buttons = [
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    [theme.breakpoints.down('xs')]: {
+      display: 'block',
+    },
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
     minWidth: 300,
     width: '100%',
-    height: '100vh',
+    height: '90vh',
   },
   image: {
     position: 'relative',
@@ -98,7 +101,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ButtonBases() {
+export default function HomeButtons() {
   const classes = useStyles();
 
   return (
