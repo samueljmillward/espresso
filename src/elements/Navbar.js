@@ -20,7 +20,7 @@ const Navbar = () => {
 
       <Menu isOpen={isOpen}>
         <MenuLink href="/beans">My Beans</MenuLink>
-        <MenuLink href="/brew">Pull A Shot</MenuLink>
+        <MenuLink href="/brews">Pull A Shot</MenuLink>
         <MenuLink href="/login">Login</MenuLink>
       </Menu>
     </Nav>

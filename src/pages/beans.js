@@ -3,7 +3,7 @@ import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Navbar from '../elements/Navbar';
-import BeanCard from '../elements/Card';
+import BeanCard from '../elements/BeanCard';
 import NewBean from '../elements/NewBean';
 
 const useStyles = makeStyles((theme) => ({

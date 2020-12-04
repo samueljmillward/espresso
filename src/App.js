@@ -4,7 +4,7 @@ import Home from './pages/home';
 import Login from './pages/login';
 import Beans from './pages/beans';
 import Register from './pages/register';
-import Brew from './pages/brew';
+import Brew from './pages/brews';
 
 import GlobalStyle from './styles/GlobalStyle';
 import { StyledApp } from './styles/StyledApp';
@@ -19,7 +19,7 @@ const App = () => {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/beans" exact component={Beans} />
-          <Route path="/brew" component={Brew} />
+          <Route path="/brews" component={Brew} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
         </Switch>

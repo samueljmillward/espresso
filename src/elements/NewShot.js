@@ -25,8 +25,8 @@ const useStyles = makeStyles((theme) => ({
   },
   addButton: {
     display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'flex-end',
+    padding: '32px',
   },
 }));
 
