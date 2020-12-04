@@ -21,9 +21,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'flex-end',
   },
-  pos: {
-    marginBottom: 12,
-  },
   expand: {
     transform: 'rotate(0deg)',
     marginLeft: 'auto',
@@ -37,12 +34,15 @@ const useStyles = makeStyles((theme) => ({
   container: {
     margin: 0,
     padding: 0,
-    paddingBottom: '1.2rem',
     display: 'flex',
     justifyContent: 'space-between',
   },
-  paddingTop: {
-    paddingTop: 0,
+  paddingBottom: {
+    margin: 0,
+    padding: 0,
+    display: 'flex',
+    justifyContent: 'space-between',
+    paddingBottom: '.8rem',
   },
 }));
 
@@ -61,15 +61,14 @@ export default function BrewCard({ brews }) {
           <Typography variant="h5" component="h2">
             {brews.name}
           </Typography>
-          <Typography
-            className={classes.date}
-            color="textSecondary"
-            gutterBottom
-          >
+          <Typography className={classes.date} color="textSecondary">
             Brewed on: {brews.brewDate}
           </Typography>
         </Container>
-        <Container className={classes.container}>
+        <Typography className={classes.paddingBottom} variant="caption">
+          Espresso
+        </Typography>
+        <Container className={classes.paddingBottom}>
           <Typography variant="h6" color="textSecondary">
             Dry Weight: {brews.dryWeight}g
           </Typography>
@@ -77,9 +76,14 @@ export default function BrewCard({ brews }) {
             Grind: {brews.grind}
           </Typography>
         </Container>
-        <Typography variant="h6" color="textSecondary">
-          Final Weight: {brews.finalWeight}g
-        </Typography>
+        <Container className={classes.container}>
+          <Typography variant="h6" color="textSecondary">
+            Final Weight: {brews.finalWeight}g
+          </Typography>
+          <Typography variant="h6" color="textSecondary">
+            Ratio: 1:1
+          </Typography>
+        </Container>
       </CardContent>
       {/* <CardMedia
         component="img"
@@ -101,9 +105,8 @@ export default function BrewCard({ brews }) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography variant="h6" gutterBottom>
-            Notes: {brews.notes}
-          </Typography>
+          <Typography variant="body1">Notes:</Typography>
+          <Typography variant="body1">{brews.notes}</Typography>
         </CardContent>
       </Collapse>
     </Card>
