@@ -107,6 +107,7 @@ export default function NewShot({ setBrewsList }) {
                   inputRef={register}
                   name="dryWeight"
                   type="number"
+                  aria-describedby="outlined-weight-helper-text"
                   variant="outlined"
                   InputLabelProps={{
                     shrink: true,
@@ -133,7 +134,9 @@ export default function NewShot({ setBrewsList }) {
                 as={<OutlinedInput />}
                 id="outlined-adornment-weight"
                 onChange={handleChange('weight')}
+                inputRef={register}
                 name="weight"
+                type="number"
                 control={control}
                 aria-describedby="outlined-weight-helper-text"
                 inputProps={{
@@ -142,6 +145,17 @@ export default function NewShot({ setBrewsList }) {
                 labelWidth={0}
               />
             </div>
+            <TextField
+              className={classes.padding}
+              autoFocus
+              margin="dense"
+              inputRef={register}
+              name="notes"
+              id="notes"
+              label="Notes"
+              type="text"
+              fullWidth
+            />
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
               <Grid container justify="space-around">
                 <Controller

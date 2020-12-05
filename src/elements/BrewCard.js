@@ -78,7 +78,7 @@ export default function BrewCard({ brews }) {
         </Container>
         <Container className={classes.container}>
           <Typography variant="h6" color="textSecondary">
-            Final Weight: {brews.finalWeight}g
+            Final Weight: {brews.weight}g
           </Typography>
           <Typography variant="h6" color="textSecondary">
             Ratio: 1:1
