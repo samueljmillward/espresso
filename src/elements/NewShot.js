@@ -92,7 +92,10 @@ export default function NewShot({ setBrewsList }) {
               className={classes.padding}
               autoFocus
               margin="dense"
-              inputRef={register}
+              inputRef={register({
+                required: true,
+                maxLength: 30,
+              })}
               name="name"
               id="name"
               label="Name"
@@ -104,9 +107,15 @@ export default function NewShot({ setBrewsList }) {
                 <TextField
                   id="standard-number"
                   label="Dry Weight (g)"
-                  inputRef={register}
+                  inputRef={register({
+                    required: true,
+                    maxLength: 2,
+                    min: 1,
+                    max: 30,
+                  })}
                   name="dryWeight"
                   type="number"
+                  pattern="^-?[0-9]\d*\.?\d*$"
                   aria-describedby="outlined-weight-helper-text"
                   variant="outlined"
                   InputLabelProps={{
@@ -117,9 +126,15 @@ export default function NewShot({ setBrewsList }) {
               <TextField
                 id="standard-number"
                 label="Grind"
-                inputRef={register}
+                inputRef={register({
+                  required: true,
+                  maxLength: 2,
+                  min: 0,
+                  max: 30,
+                })}
                 name="grind"
                 type="number"
+                pattern="^-?[0-9]\d*\.?\d*$"
                 variant="outlined"
                 InputLabelProps={{
                   shrink: true,
@@ -134,9 +149,10 @@ export default function NewShot({ setBrewsList }) {
                 as={<OutlinedInput />}
                 id="outlined-adornment-weight"
                 onChange={handleChange('weight')}
-                inputRef={register}
+                rules={{ required: true, maxLength: 2, min: 1, max: 80 }}
                 name="weight"
                 type="number"
+                pattern="^-?[0-9]\d*\.?\d*$"
                 control={control}
                 aria-describedby="outlined-weight-helper-text"
                 inputProps={{
@@ -149,7 +165,6 @@ export default function NewShot({ setBrewsList }) {
               className={classes.padding}
               autoFocus
               margin="dense"
-              inputRef={register}
               name="notes"
               id="notes"
               label="Notes"
