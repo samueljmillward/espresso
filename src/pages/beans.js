@@ -26,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Beans() {
   const classes = useStyles();
-
   const [beans, setBeansList] = useState([
     {
       name: 'House Espresso',

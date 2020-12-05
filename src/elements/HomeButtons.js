@@ -14,7 +14,7 @@ const buttons = [
   },
   {
     url: '/images/machine.jpg',
-    to: '/brew',
+    to: '/brews',
     title: 'Pull A Shot',
     width: '50%',
   },

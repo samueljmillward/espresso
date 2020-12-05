@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -64,6 +63,7 @@ export default function Brew() {
 
   return (
     <>
+      {console.log(brews)}
       <Navbar />
       <Grid
         container
@@ -77,7 +77,7 @@ export default function Brew() {
           </Grid>
         ))}
       </Grid>
-      <NewShot />
+      <NewShot setBrewsList={setBrewsList} className={classes.addButton} />
     </>
   );
 }

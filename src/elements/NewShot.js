@@ -7,6 +7,8 @@ import DialogContent from '@material-ui/core/DialogContent';
 // import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Grid from '@material-ui/core/Grid';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
 import DateFnsUtils from '@date-io/date-fns';
 import {
   MuiPickersUtilsProvider,
@@ -22,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
   weightPickers: {
     display: 'flex',
+    justifyContent: 'flex-end',
   },
   addButton: {
     display: 'flex',
@@ -30,10 +33,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NewShot() {
+export default function NewShot({ setBrewsList }) {
   const classes = useStyles();
-
-  const [open, setOpen] = React.useState(true);
 
   const { register, handleSubmit, control } = useForm();
 
@@ -41,15 +42,10 @@ export default function NewShot() {
     handleClose();
     console.clear();
     console.log({ data });
+    setBrewsList((old) => [...old, data]);
   };
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const [open, setOpen] = React.useState(true);
 
   const [selectedDate, setSelectedDate] = React.useState(
     new Date('2020-11-22T21:11:54')
@@ -65,6 +61,14 @@ export default function NewShot() {
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
+  };
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
@@ -98,26 +102,22 @@ export default function NewShot() {
             <div className={classes.weightPickers}>
               <div className={classes.padding}>
                 <TextField
-                  id="outlined-adornment-weight"
-                  onChange={handleChange('weight')}
-                  name="weight"
-                  control={control}
-                  defaultValue="0"
-                  aria-describedby="outlined-weight-helper-text"
-                  inputProps={{
-                    'aria-label': 'weight',
-                  }}
+                  id="standard-number"
                   label="Dry Weight (g)"
+                  inputRef={register}
+                  name="dryWeight"
                   type="number"
+                  variant="outlined"
                   InputLabelProps={{
                     shrink: true,
                   }}
-                  variant="outlined"
                 />
               </div>
               <TextField
                 id="standard-number"
                 label="Grind"
+                inputRef={register}
+                name="grind"
                 type="number"
                 variant="outlined"
                 InputLabelProps={{
@@ -126,22 +126,20 @@ export default function NewShot() {
               />
             </div>
             <div className={classes.finalWeight}>
-              <TextField
+              <FormHelperText id="outlined-weight-helper-text">
+                Final Weight (g)
+              </FormHelperText>
+              <Controller
+                as={<OutlinedInput />}
                 id="outlined-adornment-weight"
                 onChange={handleChange('weight')}
                 name="weight"
                 control={control}
-                defaultValue="0"
                 aria-describedby="outlined-weight-helper-text"
                 inputProps={{
                   'aria-label': 'weight',
                 }}
-                label="Final Weight (g)"
-                type="number"
-                InputLabelProps={{
-                  shrink: true,
-                }}
-                variant="outlined"
+                labelWidth={0}
               />
             </div>
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -152,11 +150,11 @@ export default function NewShot() {
                   variant="inline"
                   format="MM/dd/yyyy"
                   margin="normal"
-                  name="roastDate"
+                  name="brewDate"
                   control={control}
                   defaultValue="2020-11-28"
                   id="date-picker-inline"
-                  label="Date picker inline"
+                  label="Brewed on: "
                   value={selectedDate}
                   onChange={handleDateChange}
                   fullWidth

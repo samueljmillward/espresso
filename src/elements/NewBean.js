@@ -134,6 +134,9 @@ export default function NewBean({ setBeansList }) {
                 />
               </Grid>
             </MuiPickersUtilsProvider>
+            <FormHelperText id="outlined-weight-helper-text">
+              Weight
+            </FormHelperText>
             <Controller
               as={<OutlinedInput />}
               id="outlined-adornment-weight"
@@ -148,9 +151,7 @@ export default function NewBean({ setBeansList }) {
               }}
               labelWidth={0}
             />
-            <FormHelperText id="outlined-weight-helper-text">
-              Weight
-            </FormHelperText>
+
             <DialogActions>
               <Button onClick={handleClose} color="primary">
                 Cancel
