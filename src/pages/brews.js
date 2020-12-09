@@ -8,6 +8,8 @@ import NewShot from '../elements/NewShot';
 
 const useStyles = makeStyles((theme) => ({
   gridContainer: {
+    display: 'flex',
+    flexWrap: 'wrap-reverse',
     paddingTop: '40px',
     paddingLeft: '40px',
     paddingRight: '40px',
@@ -27,38 +29,38 @@ const useStyles = makeStyles((theme) => ({
 export default function Brew() {
   const classes = useStyles();
   const [brews, setBrewsList] = useState([
-    {
-      name: 'House Espresso',
-      brewDate: '2020-11-28',
-      dryWeight: '18',
-      grind: '5',
-      finalWeight: '36',
-      notes: 'Shot started slow but finishes <32s',
-    },
-    {
-      name: 'House Espresso',
-      brewDate: '2020-11-28',
-      dryWeight: '18',
-      grind: '5',
-      finalWeight: '36',
-      notes: 'Shot started slow but finishes <32s',
-    },
-    {
-      name: 'House Espresso',
-      brewDate: '2020-11-28',
-      dryWeight: '18',
-      grind: '5',
-      finalWeight: '36',
-      notes: 'Shot started slow but finishes <32s',
-    },
-    {
-      name: 'House Espresso',
-      brewDate: '2020-11-28',
-      dryWeight: '18',
-      grind: '5',
-      finalWeight: '36',
-      notes: 'Shot started slow but finishes <32s',
-    },
+    // {
+    //   name: 'House Espresso',
+    //   brewDate: '2020-11-28',
+    //   dryWeight: '18',
+    //   grind: '5',
+    //   finalWeight: '36',
+    //   notes: 'Shot started slow but finishes <32s',
+    // },
+    // {
+    //   name: 'House Espresso',
+    //   brewDate: '2020-11-28',
+    //   dryWeight: '18',
+    //   grind: '5',
+    //   finalWeight: '36',
+    //   notes: 'Shot started slow but finishes <32s',
+    // },
+    // {
+    //   name: 'House Espresso',
+    //   brewDate: '2020-11-28',
+    //   dryWeight: '18',
+    //   grind: '5',
+    //   finalWeight: '36',
+    //   notes: 'Shot started slow but finishes <32s',
+    // },
+    // {
+    //   name: 'House Espresso',
+    //   brewDate: '2020-11-28',
+    //   dryWeight: '18',
+    //   grind: '5',
+    //   finalWeight: '36',
+    //   notes: 'Shot started slow but finishes <32s',
+    // },
   ]);
 
   return (
@@ -69,12 +71,13 @@ export default function Brew() {
         container
         spacing={4}
         className={classes.gridContainer}
-        key={classes.id}
         justify="center"
+        display="flex"
+        flexDirection="row-reverse"
       >
         {brews.map((brews) => (
           <Grid item xs={12} sm={6} m={4}>
-            <BrewCard key={brews} brews={brews} />
+            <BrewCard brews={brews} />
           </Grid>
         ))}
       </Grid>

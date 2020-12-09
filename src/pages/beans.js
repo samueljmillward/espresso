@@ -8,6 +8,8 @@ import NewBean from '../elements/NewBean';
 
 const useStyles = makeStyles((theme) => ({
   gridContainer: {
+    display: 'flex',
+    flexWrap: 'wrap-reverse',
     paddingTop: '40px',
     paddingLeft: '40px',
     paddingRight: '40px',
@@ -27,34 +29,34 @@ const useStyles = makeStyles((theme) => ({
 export default function Beans() {
   const classes = useStyles();
   const [beans, setBeansList] = useState([
-    {
-      name: 'House Espresso',
-      roastDate: '2020-11-28',
-      origin: 'Blend',
-      flavours: 'Caramel, Bergamot, Clementine',
-      weight: '250',
-    },
-    {
-      name: 'Sitio Da Torre',
-      roastDate: '2020-11-28',
-      origin: 'Brazil',
-      flavours: 'Caramel, Bergamot, Clementine',
-      weight: '250',
-    },
-    {
-      name: 'Pacamura',
-      roastDate: '2020-11-28',
-      origin: 'Ethiopia',
-      flavours: 'Caramel, Bergamot, Clementine',
-      weight: '250',
-    },
-    {
-      name: 'San Lorenzo',
-      roastDate: '2020-11-28',
-      origin: 'Guatemala',
-      flavours: 'Caramel, Bergamot, Clementine',
-      weight: '250',
-    },
+    // {
+    //   name: 'House Espresso',
+    //   roastDate: '2020-11-28',
+    //   origin: 'Blend',
+    //   flavours: 'Caramel, Bergamot, Clementine',
+    //   weight: '250',
+    // },
+    // {
+    //   name: 'Sitio Da Torre',
+    //   roastDate: '2020-11-28',
+    //   origin: 'Brazil',
+    //   flavours: 'Caramel, Bergamot, Clementine',
+    //   weight: '250',
+    // },
+    // {
+    //   name: 'Pacamura',
+    //   roastDate: '2020-11-28',
+    //   origin: 'Ethiopia',
+    //   flavours: 'Caramel, Bergamot, Clementine',
+    //   weight: '250',
+    // },
+    // {
+    //   name: 'San Lorenzo',
+    //   roastDate: '2020-11-28',
+    //   origin: 'Guatemala',
+    //   flavours: 'Caramel, Bergamot, Clementine',
+    //   weight: '250',
+    // },
   ]);
 
   return (

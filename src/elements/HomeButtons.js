@@ -106,7 +106,7 @@ export default function HomeButtons() {
 
   return (
     <div className={classes.root}>
-      {buttons.map((image) => (
+      {buttons.map((image, index) => (
         <>
           <ButtonBase
             component={RouterLink}
