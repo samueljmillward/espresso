@@ -69,7 +69,7 @@ export default function Beans() {
       >
         {beans.map((bean) => (
           <Grid item xs={12} sm={6} m={4}>
-            <BeanCard bean={bean} />
+            <BeanCard key={bean} bean={bean} />
           </Grid>
         ))}
       </Grid>

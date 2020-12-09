@@ -69,11 +69,12 @@ export default function Brew() {
         container
         spacing={4}
         className={classes.gridContainer}
+        key={classes.id}
         justify="center"
       >
         {brews.map((brews) => (
           <Grid item xs={12} sm={6} m={4}>
-            <BrewCard brews={brews} />
+            <BrewCard key={brews} brews={brews} />
           </Grid>
         ))}
       </Grid>

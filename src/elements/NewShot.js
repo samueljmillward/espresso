@@ -151,9 +151,10 @@ export default function NewShot({ setBrewsList }) {
                 onChange={handleChange('weight')}
                 rules={{ required: true, maxLength: 2, min: 1, max: 80 }}
                 name="weight"
+                defaultValue="0"
                 type="number"
-                pattern="^-?[0-9]\d*\.?\d*$"
                 control={control}
+                pattern="^-?[0-9]\d*\.?\d*$"
                 aria-describedby="outlined-weight-helper-text"
                 inputProps={{
                   'aria-label': 'weight',

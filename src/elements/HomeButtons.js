@@ -112,7 +112,6 @@ export default function HomeButtons() {
             component={RouterLink}
             to={image.to}
             focusRipple
-            key={image.title}
             className={classes.image}
             focusVisibleClassName={classes.focusVisible}
             style={{
