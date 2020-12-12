@@ -91,7 +91,7 @@ export default function BrewCard({ brews }) {
         src={beans}
         title="House Espresso"
       /> */}
-      <CardActions className={classes.paddingTop}>
+      <CardActions style={{ padding: 0 }}>
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
@@ -106,7 +106,7 @@ export default function BrewCard({ brews }) {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography variant="body1">Notes:</Typography>
-          <Typography variant="body1">{brews.notes}</Typography>
+          <Typography variant="body2">{brews.notes}</Typography>
         </CardContent>
       </Collapse>
     </Card>

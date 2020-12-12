@@ -166,6 +166,7 @@ export default function NewShot({ setBrewsList }) {
               className={classes.padding}
               autoFocus
               margin="dense"
+              inputRef={register}
               name="notes"
               id="notes"
               label="Notes"
