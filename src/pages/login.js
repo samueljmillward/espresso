@@ -3,17 +3,40 @@ import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Button, TextField, Grid, InputAdornment } from '@material-ui/core';
 import { AccountCircle, LockRounded } from '@material-ui/icons';
+import { makeStyles } from '@material-ui/core/styles';
+
 import { useForm } from 'react-hook-form';
 
 import espresso from '../images/espresso.jpg';
 
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+
+const useStyles = makeStyles(() => ({
+  errorMessage: {
+    color: '#AC3232',
+    margin: 0,
+    fontSize: '16px',
+  },
+}));
+
+const schema = yup.object().shape({
+  username: yup.string().required('please enter a valid email address'),
+  password: yup.string().required('please enter a valid password').min(8),
+});
+
 const Login = () => {
-  const { register, handleSubmit } = useForm({ mode: 'onChange' });
+  const classes = useStyles();
+  const { register, handleSubmit, errors } = useForm({
+    resolver: yupResolver(schema),
+  });
 
   const onSubmit = (data) => {
     console.clear();
     console.log({ data });
   };
+
+  console.log({ errors });
 
   return (
     <div>
@@ -59,12 +82,10 @@ const Login = () => {
                   ),
                 }}
               />
+              <p className={classes.errorMessage}>{errors.username?.message}</p>
               <TextField
                 inputRef={register({
                   required: true,
-                  minLength: {
-                    value: 8,
-                  },
                 })}
                 name="password"
                 id="Password"
@@ -79,6 +100,7 @@ const Login = () => {
                   ),
                 }}
               />
+              <p className={classes.errorMessage}>{errors.password?.message}</p>
               <div style={{ height: 20 }} />
               <Button
                 type="submit"
