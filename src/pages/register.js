@@ -11,6 +11,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { useForm } from 'react-hook-form';
 
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -23,6 +26,13 @@ function Copyright() {
     </Typography>
   );
 }
+
+const schema = yup.object().shape({
+  email: yup.string().required('please enter a valid email address'),
+  password: yup.string().required('please enter a valid password').min(8),
+  firstName: yup.string().required('required field'),
+  lastName: yup.string().required('required field'),
+});
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -47,16 +57,25 @@ const useStyles = makeStyles((theme) => ({
   title: {
     marginBottom: '2.2rem',
   },
+  errorMessage: {
+    color: '#AC3232',
+    margin: 0,
+    fontSize: '16px',
+  },
 }));
 
 export default function Register() {
   const classes = useStyles();
-  const { register, handleSubmit } = useForm({ mode: 'onChange' });
+  const { register, handleSubmit, errors } = useForm({
+    resolver: yupResolver(schema),
+  });
 
   const onSubmit = (data) => {
     console.clear();
     console.log({ data });
   };
+
+  console.log({ errors });
 
   return (
     <Container className={classes.contaienr} component="main" maxWidth="xs">
@@ -85,6 +104,9 @@ export default function Register() {
                 label="First Name"
                 autoFocus
               />
+              <p className={classes.errorMessage}>
+                {errors.firstName?.message}
+              </p>
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField
@@ -101,6 +123,7 @@ export default function Register() {
                 name="lastName"
                 autoComplete="lname"
               />
+              <p className={classes.errorMessage}>{errors.lastName?.message}</p>
             </Grid>
             <Grid item xs={12}>
               <TextField
@@ -117,6 +140,7 @@ export default function Register() {
                 name="email"
                 autoComplete="email"
               />
+              <p className={classes.errorMessage}>{errors.email?.message}</p>
             </Grid>
             <Grid item xs={12}>
               <TextField
@@ -135,6 +159,7 @@ export default function Register() {
                 id="password"
                 autoComplete="current-password"
               />
+              <p className={classes.errorMessage}>{errors.password?.message}</p>
             </Grid>
           </Grid>
           <Button
