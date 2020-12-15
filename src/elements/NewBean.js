@@ -19,18 +19,38 @@ import { useForm, Controller } from 'react-hook-form';
 
 import { makeStyles } from '@material-ui/core/styles';
 
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+
+const schema = yup.object().shape({
+  name: yup.string().required('please enter a valid name'),
+  origin: yup.string().required('required field'),
+  flavours: yup.string().required('required field'),
+  weight: yup
+    .number()
+    .required('please enter a valid weight')
+    .positive()
+    .integer(),
+});
+
 const useStyles = makeStyles((theme) => ({
   addButton: {
     display: 'flex',
     justifyContent: 'flex-end',
     padding: '32px',
   },
+  errorMessage: {
+    color: '#AC3232',
+    fontSize: '16px',
+  },
 }));
 
 export default function NewBean({ setBeansList }) {
   const classes = useStyles();
 
-  const { register, handleSubmit, control } = useForm();
+  const { register, handleSubmit, control, errors } = useForm({
+    resolver: yupResolver(schema),
+  });
 
   const onSubmit = (data) => {
     handleClose();
@@ -38,6 +58,8 @@ export default function NewBean({ setBeansList }) {
     console.log({ data });
     setBeansList((old) => [...old, data]);
   };
+
+  console.log({ errors });
 
   const [open, setOpen] = React.useState(false);
 
@@ -92,6 +114,7 @@ export default function NewBean({ setBeansList }) {
               type="text"
               fullWidth
             />
+            <p className={classes.errorMessage}>{errors.name?.message}</p>
             <TextField
               autoFocus
               margin="dense"
@@ -102,6 +125,7 @@ export default function NewBean({ setBeansList }) {
               type="text"
               fullWidth
             />
+            <p className={classes.errorMessage}>{errors.origin?.message}</p>
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
               <Grid container justify="space-around">
                 <Controller
@@ -132,6 +156,9 @@ export default function NewBean({ setBeansList }) {
                   type="text"
                   fullWidth
                 />
+                <p className={classes.errorMessage}>
+                  {errors.flavours?.message}
+                </p>
               </Grid>
             </MuiPickersUtilsProvider>
             <FormHelperText id="outlined-weight-helper-text">
@@ -151,7 +178,7 @@ export default function NewBean({ setBeansList }) {
               }}
               labelWidth={0}
             />
-
+            <p className={classes.errorMessage}>{errors.weight?.message}</p>
             <DialogActions>
               <Button onClick={handleClose} color="primary">
                 Cancel
