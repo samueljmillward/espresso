@@ -14,6 +14,13 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
+const schema = yup.object().shape({
+  email: yup.string().required('please enter a valid email address'),
+  password: yup.string().required('please enter a valid password').min(8),
+  firstName: yup.string().required('required field'),
+  lastName: yup.string().required('required field'),
+});
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -26,13 +33,6 @@ function Copyright() {
     </Typography>
   );
 }
-
-const schema = yup.object().shape({
-  email: yup.string().required('please enter a valid email address'),
-  password: yup.string().required('please enter a valid password').min(8),
-  firstName: yup.string().required('required field'),
-  lastName: yup.string().required('required field'),
-});
 
 const useStyles = makeStyles((theme) => ({
   paper: {

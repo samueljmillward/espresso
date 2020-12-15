@@ -18,10 +18,21 @@ import { useForm, Controller } from 'react-hook-form';
 
 import { makeStyles } from '@material-ui/core/styles';
 
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+
+const schema = yup.object().shape({
+  name: yup.string().required('please enter a valid name'),
+  dryWeight: yup
+    .number()
+    .required('please enter a valid weight')
+    .positive()
+    .integer(),
+  grind: yup.number().required('required field').positive().integer(),
+  weight: yup.number().required('required field').positive().integer(),
+});
+
 const useStyles = makeStyles((theme) => ({
-  padding: {
-    paddingBottom: '1.2rem',
-  },
   weightPickers: {
     display: 'flex',
     justifyContent: 'flex-end',
@@ -31,12 +42,18 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-end',
     padding: '32px',
   },
+  errorMessage: {
+    color: '#AC3232',
+    fontSize: '16px',
+  },
 }));
 
 export default function NewShot({ setBrewsList }) {
   const classes = useStyles();
 
-  const { register, handleSubmit, control } = useForm();
+  const { register, handleSubmit, control, errors } = useForm({
+    resolver: yupResolver(schema),
+  });
 
   const onSubmit = (data) => {
     handleClose();
@@ -44,6 +61,8 @@ export default function NewShot({ setBrewsList }) {
     console.log({ data });
     setBrewsList((old) => [...old, data]);
   };
+
+  console.log({ errors });
 
   const [open, setOpen] = React.useState(true);
 
@@ -93,7 +112,7 @@ export default function NewShot({ setBrewsList }) {
               autoFocus
               margin="dense"
               inputRef={register({
-                required: true,
+                // required: true,
                 maxLength: 30,
               })}
               name="name"
@@ -102,6 +121,7 @@ export default function NewShot({ setBrewsList }) {
               type="text"
               fullWidth
             />
+            <p className={classes.errorMessage}>{errors.name?.message}</p>
             <div className={classes.weightPickers}>
               <div className={classes.padding}>
                 <TextField
@@ -114,6 +134,7 @@ export default function NewShot({ setBrewsList }) {
                     max: 30,
                   })}
                   name="dryWeight"
+                  defaultValue="0"
                   type="number"
                   pattern="^-?[0-9]\d*\.?\d*$"
                   aria-describedby="outlined-weight-helper-text"
@@ -122,6 +143,9 @@ export default function NewShot({ setBrewsList }) {
                     shrink: true,
                   }}
                 />
+                <p className={classes.errorMessage}>
+                  {errors.dryWeight?.message}
+                </p>
               </div>
               <TextField
                 id="standard-number"
@@ -133,6 +157,7 @@ export default function NewShot({ setBrewsList }) {
                   max: 30,
                 })}
                 name="grind"
+                defaultValue="0"
                 type="number"
                 pattern="^-?[0-9]\d*\.?\d*$"
                 variant="outlined"
@@ -140,6 +165,7 @@ export default function NewShot({ setBrewsList }) {
                   shrink: true,
                 }}
               />
+              <p className={classes.errorMessage}>{errors.grind?.message}</p>
             </div>
             <div className={classes.finalWeight}>
               <FormHelperText id="outlined-weight-helper-text">
@@ -161,6 +187,7 @@ export default function NewShot({ setBrewsList }) {
                 }}
                 labelWidth={0}
               />
+              <p className={classes.errorMessage}>{errors.weight?.message}</p>
             </div>
             <TextField
               className={classes.padding}
