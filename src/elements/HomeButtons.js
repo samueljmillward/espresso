@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     minWidth: 300,
     width: '100%',
-    height: '90vh',
+    height: '75vh',
   },
   image: {
     position: 'relative',

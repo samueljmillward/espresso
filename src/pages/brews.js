@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Navbar from '../elements/Navbar';
 import BrewCard from '../elements/BrewCard';
 import NewShot from '../elements/NewShot';
+import Footer from '../elements/Footer';
 
 const useStyles = makeStyles((theme) => ({
   gridContainer: {
@@ -82,6 +83,7 @@ export default function Brew() {
         ))}
       </Grid>
       <NewShot setBrewsList={setBrewsList} className={classes.addButton} />
+      <Footer />
     </>
   );
 }
