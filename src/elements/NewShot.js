@@ -10,6 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import DateFnsUtils from '@date-io/date-fns';
+import { format } from 'date-fns';
 import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
@@ -48,6 +49,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const defaultValues = {
+  name: 'Old Brown Java',
+  dryWeight: 18,
+  grind: 3,
+  weight: 36,
+  notes: 'Slightly bitter',
+  brewDate: new Date(),
+};
+
 export default function NewShot({ setBrewsList }) {
   const classes = useStyles();
 
@@ -59,6 +69,7 @@ export default function NewShot({ setBrewsList }) {
     handleClose();
     console.clear();
     console.log({ data });
+    data.brewDate = format(data.brewDate, 'yyyy-MM-dd');
     setBrewsList((old) => [...old, data]);
   };
 
@@ -66,9 +77,7 @@ export default function NewShot({ setBrewsList }) {
 
   const [open, setOpen] = React.useState(true);
 
-  const [selectedDate, setSelectedDate] = React.useState(
-    new Date('2020-11-22T21:11:54')
-  );
+  const [selectedDate, setSelectedDate] = React.useState(new Date());
 
   const [values, setValues] = React.useState({
     weight: '',
@@ -115,6 +124,7 @@ export default function NewShot({ setBrewsList }) {
                 // required: true,
                 maxLength: 30,
               })}
+              defaultValue={defaultValues.name}
               name="name"
               id="name"
               label="Name"
@@ -134,7 +144,8 @@ export default function NewShot({ setBrewsList }) {
                     max: 30,
                   })}
                   name="dryWeight"
-                  defaultValue="0"
+                  defaultValue={defaultValues.dryWeight}
+                  // defaultValue="0"
                   type="number"
                   pattern="^-?[0-9]\d*\.?\d*$"
                   aria-describedby="outlined-weight-helper-text"
@@ -157,7 +168,8 @@ export default function NewShot({ setBrewsList }) {
                   max: 30,
                 })}
                 name="grind"
-                defaultValue="0"
+                defaultValue={defaultValues.grind}
+                // defaultValue="0"
                 type="number"
                 pattern="^-?[0-9]\d*\.?\d*$"
                 variant="outlined"
@@ -177,7 +189,8 @@ export default function NewShot({ setBrewsList }) {
                 onChange={handleChange('weight')}
                 rules={{ required: true, maxLength: 2, min: 1, max: 80 }}
                 name="weight"
-                defaultValue="0"
+                defaultValue={defaultValues.weight}
+                // defaultValue="0"
                 type="number"
                 control={control}
                 pattern="^-?[0-9]\d*\.?\d*$"
@@ -195,6 +208,7 @@ export default function NewShot({ setBrewsList }) {
               margin="dense"
               inputRef={register}
               name="notes"
+              defaultValue={defaultValues.notes}
               id="notes"
               label="Notes"
               type="text"
@@ -206,15 +220,16 @@ export default function NewShot({ setBrewsList }) {
                   as={<KeyboardDatePicker />}
                   disableToolbar
                   variant="inline"
-                  format="MM/dd/yyyy"
+                  format="dd/MM/yyyy"
                   margin="normal"
                   name="brewDate"
+                  defaultValue={defaultValues.brewDate}
                   control={control}
-                  defaultValue="2020-11-28"
+                  // defaultValue="2021-01-01"
                   id="date-picker-inline"
                   label="Brewed on: "
                   value={selectedDate}
-                  onChange={handleDateChange}
+                  onChange={(date) => handleDateChange(date)}
                   fullWidth
                   KeyboardButtonProps={{
                     'aria-label': 'change date',

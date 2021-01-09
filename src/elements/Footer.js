@@ -56,7 +56,7 @@ const Footer = () => {
         </div> */}
         <div>
           <p className={classes.colSm}>
-            &copy;{new Date().getFullYear()} ESPRESSO
+            &copy;{new Date().getFullYear()} Espresso
           </p>
         </div>
       </div>
