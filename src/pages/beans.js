@@ -5,7 +5,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Navbar from '../elements/Navbar';
 import BeanCard from '../elements/BeanCard';
 import NewBean from '../elements/NewBean';
-import Footer from '../elements/Footer';
 
 const useStyles = makeStyles((theme) => ({
   gridContainer: {
@@ -77,7 +76,6 @@ export default function Beans() {
         ))}
       </Grid>
       <NewBean setBeansList={setBeansList} className={classes.addButton} />
-      <Footer />
     </>
   );
 }

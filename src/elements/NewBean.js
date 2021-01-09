@@ -11,6 +11,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import DateFnsUtils from '@date-io/date-fns';
+import { format } from 'date-fns';
 import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
@@ -45,6 +46,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const defaultValues = {
+  name: 'Old Brown Java',
+  origin: 'Brazil',
+  weight: 250,
+  roastDate: new Date(),
+  flavours: 'smokey, brown sugar',
+};
+
 export default function NewBean({ setBeansList }) {
   const classes = useStyles();
 
@@ -56,6 +65,7 @@ export default function NewBean({ setBeansList }) {
     handleClose();
     console.clear();
     console.log({ data });
+    data.roastDate = format(data.roastDate, 'yyyy-MM-dd');
     setBeansList((old) => [...old, data]);
   };
 
@@ -108,6 +118,7 @@ export default function NewBean({ setBeansList }) {
               autoFocus
               margin="dense"
               inputRef={register}
+              defaultValue={defaultValues.name}
               name="name"
               id="name"
               label="Name"
@@ -119,6 +130,7 @@ export default function NewBean({ setBeansList }) {
               autoFocus
               margin="dense"
               inputRef={register}
+              defaultValue={defaultValues.origin}
               name="origin"
               id="origin"
               label="Origin"
@@ -132,11 +144,11 @@ export default function NewBean({ setBeansList }) {
                   as={<KeyboardDatePicker />}
                   disableToolbar
                   variant="inline"
-                  format="MM/dd/yyyy"
+                  format="dd/MM/yyyy"
                   margin="normal"
                   name="roastDate"
+                  defaultValue={defaultValues.roastDate}
                   control={control}
-                  defaultValue="2020-11-28"
                   id="date-picker-inline"
                   label="Date picker inline"
                   value={selectedDate}
@@ -151,6 +163,7 @@ export default function NewBean({ setBeansList }) {
                   margin="dense"
                   inputRef={register}
                   name="flavours"
+                  defaultValue={defaultValues.flavours}
                   id="flavours"
                   label="Flavours"
                   type="text"
@@ -170,7 +183,7 @@ export default function NewBean({ setBeansList }) {
               onChange={handleChange('weight')}
               name="weight"
               control={control}
-              defaultValue="0"
+              defaultValue={defaultValues.weight}
               endAdornment={<InputAdornment position="end">g</InputAdornment>}
               aria-describedby="outlined-weight-helper-text"
               inputProps={{
