@@ -69,7 +69,7 @@ export default function NewShot({ setBrewsList }) {
     handleClose();
     console.clear();
     console.log({ data });
-    data.brewDate = format(data.brewDate, 'yyyy-MM-dd');
+    data.brewDate = format(data.brewDate, 'dd-MM-yyyy');
     setBrewsList((old) => [...old, data]);
   };
 

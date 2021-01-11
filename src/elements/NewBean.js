@@ -11,7 +11,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import DateFnsUtils from '@date-io/date-fns';
-import { format } from 'date-fns';
+import { formatDistanceToNow } from 'date-fns';
 import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
@@ -65,7 +65,7 @@ export default function NewBean({ setBeansList }) {
     handleClose();
     console.clear();
     console.log({ data });
-    data.roastDate = format(data.roastDate, 'yyyy-MM-dd');
+    data.roastDate = formatDistanceToNow(data.roastDate, 'dd-MM-yyyy');
     setBeansList((old) => [...old, data]);
   };
 
@@ -73,9 +73,7 @@ export default function NewBean({ setBeansList }) {
 
   const [open, setOpen] = React.useState(false);
 
-  const [selectedDate, setSelectedDate] = React.useState(
-    new Date('2020-11-22T21:11:54')
-  );
+  const [selectedDate, setSelectedDate] = React.useState(new Date());
 
   const [values, setValues] = React.useState({
     weight: '',
@@ -150,7 +148,7 @@ export default function NewBean({ setBeansList }) {
                   defaultValue={defaultValues.roastDate}
                   control={control}
                   id="date-picker-inline"
-                  label="Date picker inline"
+                  label="Roast Date:"
                   value={selectedDate}
                   onChange={handleDateChange}
                   fullWidth
