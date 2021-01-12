@@ -54,6 +54,21 @@ export default function BrewCard({ brews }) {
     setExpanded(!expanded);
   };
 
+  const calculateRatio = (num_1, num_2) => {
+    let num = '';
+
+    for (num = num_2; num > 1; num--) {
+      if (num_1 % num === 0 && num_2 % num === 0) {
+        num_1 = num_1 / num;
+        num_2 = num_2 / num;
+      }
+    }
+
+    const ratio = num_1 + ':' + num_2;
+
+    return ratio;
+  };
+
   return (
     <Card className={classes.root} variant="outlined">
       <CardContent>
@@ -81,7 +96,7 @@ export default function BrewCard({ brews }) {
             Final Weight: {brews.weight}g
           </Typography>
           <Typography variant="h6" color="textSecondary">
-            Ratio: 1:1
+            Ratio: {calculateRatio(brews.dryWeight, brews.weight)}
           </Typography>
         </Container>
       </CardContent>
