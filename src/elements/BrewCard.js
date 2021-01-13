@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
   date: {
     display: 'flex',
     justifyContent: 'flex-end',
+    fontSize: '.8rem',
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -77,7 +78,7 @@ export default function BrewCard({ brews }) {
             {brews.name}
           </Typography>
           <Typography className={classes.date} color="textSecondary">
-            Brewed on: {brews.brewDate}
+            Brewed: {brews.brewDate} ago
           </Typography>
         </Container>
         <Typography className={classes.paddingBottom} variant="caption">
