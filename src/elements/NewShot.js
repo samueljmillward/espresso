@@ -10,7 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import DateFnsUtils from '@date-io/date-fns';
-import { format } from 'date-fns';
+import { formatDistanceToNow } from 'date-fns';
 import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
@@ -69,7 +69,7 @@ export default function NewShot({ setBrewsList }) {
     handleClose();
     console.clear();
     console.log({ data });
-    data.brewDate = format(data.brewDate, 'dd-MM-yyyy');
+    data.brewDate = formatDistanceToNow(data.brewDate, 'dd-MM-yyyy');
     setBrewsList((old) => [...old, data]);
   };
 
