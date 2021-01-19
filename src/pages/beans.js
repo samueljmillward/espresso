@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Beans() {
   const classes = useStyles();
 
-  function useLocalStorage(defaultValue, key) {
+  function useLocalBeanStorage(defaultValue, key) {
     const [value, setValue] = useState(() => {
       const storage = localStorage.getItem(key);
       console.log(localStorage, storage);
@@ -37,13 +37,13 @@ export default function Beans() {
     });
 
     useEffect(() => {
-      window.localStorage.setItem(key, JSON.stringify(value));
+      localStorage.setItem(key, JSON.stringify(value));
     }, [key, value]);
 
     return [value, setValue];
   }
 
-  const [beans, setBeansList] = useLocalStorage([]);
+  const [beans, setBeansList] = useLocalBeanStorage([], 'beans');
 
   return (
     <>

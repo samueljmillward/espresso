@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -28,40 +28,22 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Brew() {
   const classes = useStyles();
-  const [brews, setBrewsList] = useState([
-    // {
-    //   name: 'House Espresso',
-    //   brewDate: '2020-11-28',
-    //   dryWeight: '18',
-    //   grind: '5',
-    //   finalWeight: '36',
-    //   notes: 'Shot started slow but finishes <32s',
-    // },
-    // {
-    //   name: 'House Espresso',
-    //   brewDate: '2020-11-28',
-    //   dryWeight: '18',
-    //   grind: '5',
-    //   finalWeight: '36',
-    //   notes: 'Shot started slow but finishes <32s',
-    // },
-    // {
-    //   name: 'House Espresso',
-    //   brewDate: '2020-11-28',
-    //   dryWeight: '18',
-    //   grind: '5',
-    //   finalWeight: '36',
-    //   notes: 'Shot started slow but finishes <32s',
-    // },
-    // {
-    //   name: 'House Espresso',
-    //   brewDate: '2020-11-28',
-    //   dryWeight: '18',
-    //   grind: '5',
-    //   finalWeight: '36',
-    //   notes: 'Shot started slow but finishes <32s',
-    // },
-  ]);
+
+  function useLocalBrewStorage(defaultValue, key) {
+    const [value, setValue] = useState(() => {
+      const storage = localStorage.getItem(key);
+      console.log(localStorage, storage);
+      return storage !== null ? JSON.parse(storage) : defaultValue;
+    });
+
+    useEffect(() => {
+      localStorage.setItem(key, JSON.stringify(value));
+    }, [key, value]);
+
+    return [value, setValue];
+  }
+
+  const [brews, setBrewsList] = useLocalBrewStorage([], 'brews');
 
   return (
     <>
@@ -77,7 +59,7 @@ export default function Brew() {
       >
         {brews.map((brews) => (
           <Grid item xs={12} sm={6} m={4}>
-            <BrewCard brews={brews} />
+            <BrewCard key={brews} brews={brews} />
           </Grid>
         ))}
       </Grid>
