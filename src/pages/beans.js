@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -28,36 +28,22 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Beans() {
   const classes = useStyles();
-  const [beans, setBeansList] = useState([
-    // {
-    //   name: 'House Espresso',
-    //   roastDate: '2020-11-28',
-    //   origin: 'Blend',
-    //   flavours: 'Caramel, Bergamot, Clementine',
-    //   weight: '250',
-    // },
-    // {
-    //   name: 'Sitio Da Torre',
-    //   roastDate: '2020-11-28',
-    //   origin: 'Brazil',
-    //   flavours: 'Caramel, Bergamot, Clementine',
-    //   weight: '250',
-    // },
-    // {
-    //   name: 'Pacamura',
-    //   roastDate: '2020-11-28',
-    //   origin: 'Ethiopia',
-    //   flavours: 'Caramel, Bergamot, Clementine',
-    //   weight: '250',
-    // },
-    // {
-    //   name: 'San Lorenzo',
-    //   roastDate: '2020-11-28',
-    //   origin: 'Guatemala',
-    //   flavours: 'Caramel, Bergamot, Clementine',
-    //   weight: '250',
-    // },
-  ]);
+
+  function useLocalStorage(defaultValue, key) {
+    const [value, setValue] = useState(() => {
+      const storage = localStorage.getItem(key);
+      console.log(localStorage, storage);
+      return storage !== null ? JSON.parse(storage) : defaultValue;
+    });
+
+    useEffect(() => {
+      window.localStorage.setItem(key, JSON.stringify(value));
+    }, [key, value]);
+
+    return [value, setValue];
+  }
+
+  const [beans, setBeansList] = useLocalStorage([]);
 
   return (
     <>
