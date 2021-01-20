@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Navbar from '../elements/Navbar';
 import BeanCard from '../elements/BeanCard';
 import NewBean from '../elements/NewBean';
+import useLocalStorage from '../hooks/useLocalStorage';
 
 const useStyles = makeStyles((theme) => ({
   gridContainer: {
@@ -29,21 +30,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Beans() {
   const classes = useStyles();
 
-  function useLocalBeanStorage(defaultValue, key) {
-    const [value, setValue] = useState(() => {
-      const storage = localStorage.getItem(key);
-      console.log(localStorage, storage);
-      return storage !== null ? JSON.parse(storage) : defaultValue;
-    });
-
-    useEffect(() => {
-      localStorage.setItem(key, JSON.stringify(value));
-    }, [key, value]);
-
-    return [value, setValue];
-  }
-
-  const [beans, setBeansList] = useLocalBeanStorage([], 'beans');
+  const [beans, setBeansList] = useLocalStorage([], 'beans');
 
   return (
     <>
