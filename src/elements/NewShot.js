@@ -23,14 +23,29 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
-  name: yup.string().required('please enter a valid name'),
+  name: yup.string().required('please enter a valid name').max(30, 'Too long!'),
   dryWeight: yup
     .number()
     .required('please enter a valid weight')
+    .typeError('must be a number')
+    .max(50, 'Too much coffee man, maybe slow down...')
     .positive()
     .integer(),
-  grind: yup.number().required('required field').positive().integer(),
-  weight: yup.number().required('required field').positive().integer(),
+  grind: yup
+    .number()
+    .required('required field')
+    .typeError('must be a number')
+    .max(99, 'Exceeded maximum grind')
+    .min(0, 'Exceeeded minimum grind')
+    .integer(),
+  weight: yup
+    .number()
+    .required('required field')
+    .typeError('must be a number')
+    .max(80, 'Too much coffee man, maybe slow down...')
+    .positive()
+    .integer(),
+  notes: yup.string().max(75, "Sorry, that's too many notes!"),
 });
 
 const useStyles = makeStyles((theme) => ({
@@ -214,6 +229,8 @@ export default function NewShot({ setBrewsList }) {
               type="text"
               fullWidth
             />
+            <p className={classes.errorMessage}>{errors.notes?.message}</p>
+
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
               <Grid container justify="space-around">
                 <Controller

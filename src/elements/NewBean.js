@@ -24,12 +24,14 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
-  name: yup.string().required('please enter a valid name'),
-  origin: yup.string().required('required field'),
-  flavours: yup.string().required('required field'),
+  name: yup.string().required('please enter a valid name').max(30, 'Too long!'),
+  origin: yup.string().required('required field').max(30, 'Too long!'),
+  flavours: yup.string().required('required field').max(50, 'Too long!'),
   weight: yup
     .number()
     .required('please enter a valid weight')
+    .typeError('must be a number')
+    .max(9999, "Sorry, that's too many beans for us!")
     .positive()
     .integer(),
 });
