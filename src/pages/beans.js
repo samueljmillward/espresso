@@ -32,6 +32,9 @@ export default function Beans() {
 
   const [beans, setBeansList] = useLocalStorage([], 'beans');
 
+  const reversedBeans = beans.slice().reverse();
+  // Returns bean list by most recent first
+
   return (
     <>
       {console.log(beans)}
@@ -42,9 +45,9 @@ export default function Beans() {
         className={classes.gridContainer}
         justify="center"
       >
-        {beans.map((bean) => (
+        {reversedBeans.map((reversedBeans) => (
           <Grid item xs={12} sm={6} m={4}>
-            <BeanCard key={bean} bean={bean} />
+            <BeanCard key={reversedBeans} bean={reversedBeans} />
           </Grid>
         ))}
       </Grid>

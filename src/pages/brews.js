@@ -33,6 +33,7 @@ export default function Brew() {
   const [brews, setBrewsList] = useLocalStorage([], 'brews');
 
   const reversedBrews = brews.slice().reverse();
+  // Returns brew list by most recent first
 
   return (
     <>
