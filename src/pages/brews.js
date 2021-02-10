@@ -10,7 +10,7 @@ import useLocalStorage from '../hooks/useLocalStorage';
 const useStyles = makeStyles((theme) => ({
   gridContainer: {
     display: 'flex',
-    flexWrap: 'wrap-reverse',
+    flexWrap: 'wrap',
     paddingTop: '40px',
     paddingLeft: '40px',
     paddingRight: '40px',
@@ -32,6 +32,8 @@ export default function Brew() {
 
   const [brews, setBrewsList] = useLocalStorage([], 'brews');
 
+  const reversedBrews = brews.slice().reverse();
+
   return (
     <>
       {console.log(brews)}
@@ -41,12 +43,10 @@ export default function Brew() {
         spacing={4}
         className={classes.gridContainer}
         justify="center"
-        display="flex"
-        flexDirection="row-reverse"
       >
-        {brews.map((brews) => (
+        {reversedBrews.map((reversedBrews) => (
           <Grid item xs={12} sm={6} m={4}>
-            <BrewCard key={brews} brews={brews} />
+            <BrewCard key={reversedBrews} brews={reversedBrews} />
           </Grid>
         ))}
       </Grid>

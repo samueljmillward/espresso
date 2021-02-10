@@ -230,7 +230,6 @@ export default function NewShot({ setBrewsList }) {
               fullWidth
             />
             <p className={classes.errorMessage}>{errors.notes?.message}</p>
-
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
               <Grid container justify="space-around">
                 <Controller
