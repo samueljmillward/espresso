@@ -10,7 +10,7 @@ import useLocalStorage from '../hooks/useLocalStorage';
 const useStyles = makeStyles((theme) => ({
   gridContainer: {
     display: 'flex',
-    flexWrap: 'wrap-reverse',
+    flexWrap: 'wrap',
     paddingTop: '40px',
     paddingLeft: '40px',
     paddingRight: '40px',
