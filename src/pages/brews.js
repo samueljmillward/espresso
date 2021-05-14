@@ -33,7 +33,6 @@ export default function Brew() {
   const [brews, setBrewsList] = useLocalStorage([], 'brews');
 
   const reversedBrews = brews.slice().reverse();
-  // Returns brew list by most recent first
 
   return (
     <>
@@ -43,7 +42,7 @@ export default function Brew() {
         container
         spacing={4}
         className={classes.gridContainer}
-        justify="center"
+        justify='center'
       >
         {reversedBrews.map((reversedBrews) => (
           <Grid item xs={12} sm={6} m={4}>

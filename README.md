@@ -18,7 +18,7 @@ Data is currently being stored using the [**LocalStorage**](https://developer.mo
 
 ## Styling
 
-Styled using [**styled-components**](https://www.styled-components.com) and React UI Framework [**Material-UI**](**https://material-ui.com/**).
+Styled using [**styled-components**](https://www.styled-components.com) and React UI Framework [**Material-UI**](https://material-ui.com/).
 
 ## Linting and Formatting
 
