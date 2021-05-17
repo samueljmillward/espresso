@@ -2,16 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import { useAuth0 } from '@auth0/auth0-react';
 
-const LoginButton = () => {
-  const { loginWithRedirect, isAuthenticated } = useAuth0();
+const LogoutButton = () => {
+  const { logout, isAuthenticated } = useAuth0();
   return (
-    !isAuthenticated && (
-      <LoginBtn onClick={() => loginWithRedirect()}>Login</LoginBtn>
-    )
+    isAuthenticated && <LogoutBtn onClick={() => logout()}>Logout</LogoutBtn>
   );
 };
 
-const LoginBtn = styled.a`
+const LogoutBtn = styled.a`
   padding: 1rem 2rem;
   cursor: pointer;
   text-align: center;
@@ -25,4 +23,4 @@ const LoginBtn = styled.a`
   }
 `;
 
-export default LoginButton;
+export default LogoutButton;
