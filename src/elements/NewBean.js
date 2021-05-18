@@ -54,6 +54,7 @@ const defaultValues = {
   weight: 250,
   roastDate: new Date(),
   flavours: 'smokey, brown sugar',
+  notes: 'Peak flavour at 1 week',
 };
 
 export default function NewBean({ setBeansList }) {
@@ -99,15 +100,15 @@ export default function NewBean({ setBeansList }) {
 
   return (
     <div className={classes.addButton}>
-      <Button variant="contained" color="primary" onClick={handleClickOpen}>
+      <Button variant='contained' color='primary' onClick={handleClickOpen}>
         Add Bean
       </Button>
       <Dialog
         open={open}
         onClose={handleClose}
-        aria-labelledby="form-dialog-title"
+        aria-labelledby='form-dialog-title'
       >
-        <DialogTitle id="form-dialog-title">New Bean</DialogTitle>
+        <DialogTitle id='form-dialog-title'>New Bean</DialogTitle>
         <form onSubmit={handleSubmit(onSubmit)}>
           <DialogContent>
             {/* <DialogContentText>
@@ -116,41 +117,41 @@ export default function NewBean({ setBeansList }) {
           </DialogContentText> */}
             <TextField
               autoFocus
-              margin="dense"
+              margin='dense'
               inputRef={register}
               defaultValue={defaultValues.name}
-              name="name"
-              id="name"
-              label="Name"
-              type="text"
+              name='name'
+              id='name'
+              label='Name'
+              type='text'
               fullWidth
             />
             <p className={classes.errorMessage}>{errors.name?.message}</p>
             <TextField
               autoFocus
-              margin="dense"
+              margin='dense'
               inputRef={register}
               defaultValue={defaultValues.origin}
-              name="origin"
-              id="origin"
-              label="Origin"
-              type="text"
+              name='origin'
+              id='origin'
+              label='Origin'
+              type='text'
               fullWidth
             />
             <p className={classes.errorMessage}>{errors.origin?.message}</p>
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
-              <Grid container justify="space-around">
+              <Grid container justify='space-around'>
                 <Controller
                   as={<KeyboardDatePicker />}
                   disableToolbar
-                  variant="inline"
-                  format="dd/MM/yyyy"
-                  margin="normal"
-                  name="roastDate"
+                  variant='inline'
+                  format='dd/MM/yyyy'
+                  margin='normal'
+                  name='roastDate'
                   defaultValue={defaultValues.roastDate}
                   control={control}
-                  id="date-picker-inline"
-                  label="Roast Date:"
+                  id='date-picker-inline'
+                  label='Roast Date:'
                   value={selectedDate}
                   onChange={handleDateChange}
                   fullWidth
@@ -160,13 +161,13 @@ export default function NewBean({ setBeansList }) {
                 />
                 <TextField
                   autoFocus
-                  margin="dense"
+                  margin='dense'
                   inputRef={register}
-                  name="flavours"
+                  name='flavours'
                   defaultValue={defaultValues.flavours}
-                  id="flavours"
-                  label="Flavours"
-                  type="text"
+                  id='flavours'
+                  label='Flavours'
+                  type='text'
                   fullWidth
                 />
                 <p className={classes.errorMessage}>
@@ -174,29 +175,41 @@ export default function NewBean({ setBeansList }) {
                 </p>
               </Grid>
             </MuiPickersUtilsProvider>
-            <FormHelperText id="outlined-weight-helper-text">
+            <FormHelperText id='outlined-weight-helper-text'>
               Weight
             </FormHelperText>
             <Controller
               as={<OutlinedInput />}
-              id="outlined-adornment-weight"
+              id='outlined-adornment-weight'
               onChange={handleChange('weight')}
-              name="weight"
+              name='weight'
               control={control}
               defaultValue={defaultValues.weight}
-              endAdornment={<InputAdornment position="end">g</InputAdornment>}
-              aria-describedby="outlined-weight-helper-text"
+              endAdornment={<InputAdornment position='end'>g</InputAdornment>}
+              aria-describedby='outlined-weight-helper-text'
               inputProps={{
                 'aria-label': 'weight',
               }}
               labelWidth={0}
             />
             <p className={classes.errorMessage}>{errors.weight?.message}</p>
+            <TextField
+              className={classes.padding}
+              autoFocus
+              margin='dense'
+              inputRef={register}
+              name='notes'
+              defaultValue={defaultValues.notes}
+              id='notes'
+              label='Notes'
+              type='text'
+              fullWidth
+            />
             <DialogActions>
-              <Button onClick={handleClose} color="primary">
+              <Button onClick={handleClose} color='primary'>
                 Cancel
               </Button>
-              <Button type="submit" color="primary">
+              <Button type='submit' color='primary'>
                 Submit
               </Button>
             </DialogActions>

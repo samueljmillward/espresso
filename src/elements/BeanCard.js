@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 // import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
 import Container from '@material-ui/core/Container';
+import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -53,24 +54,24 @@ export default function BeanCard({ bean }) {
   };
 
   return (
-    <Card className={classes.root} variant="outlined">
+    <Card className={classes.root} variant='outlined'>
       <CardContent>
         <Typography
           className={classes.title}
-          color="textSecondary"
+          color='textSecondary'
           gutterBottom
         >
           Roast Date: {bean.roastDate} ago
         </Typography>
-        <Typography variant="h5" component="h2">
+        <Typography variant='h5' component='h2'>
           {bean.name}
         </Typography>
-        <Typography className={classes.pos} color="textSecondary">
+        <Typography className={classes.pos} color='textSecondary'>
           {bean.origin}
         </Typography>
         <Container className={classes.container}>
-          <Typography color="textSecondary">{bean.flavours}</Typography>
-          <Typography color="textSecondary">{bean.weight}g</Typography>
+          <Typography color='textSecondary'>{bean.flavours}</Typography>
+          <Typography color='textSecondary'>{bean.weight}g</Typography>
         </Container>
       </CardContent>
       {/* <CardMedia
@@ -80,7 +81,7 @@ export default function BeanCard({ bean }) {
         title="House Espresso"
       /> */}
       <CardActions className={classes.paddingTop}>
-        <IconButton aria-label="add to favorites">
+        <IconButton aria-label='add to favorites'>
           <FavoriteIcon />
         </IconButton>
         <IconButton
@@ -89,11 +90,17 @@ export default function BeanCard({ bean }) {
           })}
           onClick={handleExpandClick}
           aria-expanded={expanded}
-          aria-label="show more"
+          aria-label='show more'
         >
           <ExpandMoreIcon />
         </IconButton>
       </CardActions>
+      <Collapse in={expanded} timeout='auto' unmountOnExit>
+        <CardContent>
+          <Typography variant='body1'>Notes:</Typography>
+          <Typography variant='body2'>{bean.notes}</Typography>
+        </CardContent>
+      </Collapse>
     </Card>
   );
 }
