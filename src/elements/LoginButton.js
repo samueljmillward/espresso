@@ -11,7 +11,7 @@ const LoginButton = () => {
   );
 };
 
-const LoginBtn = styled.a`
+const LoginBtn = styled.button`
   padding: 1rem 2rem;
   cursor: pointer;
   text-align: center;
@@ -19,6 +19,11 @@ const LoginBtn = styled.a`
   color: burlywood;
   transition: all 0.3s ease-in;
   font-size: 0.9rem;
+  background: none;
+  color: inherit;
+  border: none;
+  font: inherit;
+  outline: inherit;
 
   &:hover {
     color: #c46404;
