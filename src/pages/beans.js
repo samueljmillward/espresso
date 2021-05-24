@@ -43,7 +43,7 @@ export default function Beans() {
         container
         spacing={4}
         className={classes.gridContainer}
-        justify="center"
+        justify='center'
       >
         {reversedBeans.map((reversedBeans) => (
           <Grid item xs={12} sm={6} m={4}>

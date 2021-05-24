@@ -88,8 +88,6 @@ export default function NewShot({ setBrewsList }) {
     setBrewsList((old) => [...old, data]);
   };
 
-  console.log({ errors });
-
   const [open, setOpen] = React.useState(true);
 
   const [selectedDate, setSelectedDate] = React.useState(new Date());
@@ -116,15 +114,15 @@ export default function NewShot({ setBrewsList }) {
 
   return (
     <div className={classes.addButton}>
-      <Button variant="contained" color="primary" onClick={handleClickOpen}>
+      <Button variant='contained' color='primary' onClick={handleClickOpen}>
         New Shot
       </Button>
       <Dialog
         open={open}
         onClose={handleClose}
-        aria-labelledby="form-dialog-title"
+        aria-labelledby='form-dialog-title'
       >
-        <DialogTitle id="form-dialog-title">New Espresso Shot</DialogTitle>
+        <DialogTitle id='form-dialog-title'>New Espresso Shot</DialogTitle>
         <form onSubmit={handleSubmit(onSubmit)}>
           <DialogContent>
             {/* <DialogContentText>
@@ -134,37 +132,37 @@ export default function NewShot({ setBrewsList }) {
             <TextField
               className={classes.padding}
               autoFocus
-              margin="dense"
+              margin='dense'
               inputRef={register({
                 // required: true,
                 maxLength: 30,
               })}
               defaultValue={defaultValues.name}
-              name="name"
-              id="name"
-              label="Name"
-              type="text"
+              name='name'
+              id='name'
+              label='Name'
+              type='text'
               fullWidth
             />
             <p className={classes.errorMessage}>{errors.name?.message}</p>
             <div className={classes.weightPickers}>
               <div className={classes.padding}>
                 <TextField
-                  id="standard-number"
-                  label="Dry Weight (g)"
+                  id='standard-number'
+                  label='Dry Weight (g)'
                   inputRef={register({
                     required: true,
                     maxLength: 2,
                     min: 1,
                     max: 30,
                   })}
-                  name="dryWeight"
+                  name='dryWeight'
                   defaultValue={defaultValues.dryWeight}
                   // defaultValue="0"
-                  type="number"
-                  pattern="^-?[0-9]\d*\.?\d*$"
-                  aria-describedby="outlined-weight-helper-text"
-                  variant="outlined"
+                  type='number'
+                  pattern='^-?[0-9]\d*\.?\d*$'
+                  aria-describedby='outlined-weight-helper-text'
+                  variant='outlined'
                   InputLabelProps={{
                     shrink: true,
                   }}
@@ -174,20 +172,20 @@ export default function NewShot({ setBrewsList }) {
                 </p>
               </div>
               <TextField
-                id="standard-number"
-                label="Grind"
+                id='standard-number'
+                label='Grind'
                 inputRef={register({
                   required: true,
                   maxLength: 2,
                   min: 0,
                   max: 30,
                 })}
-                name="grind"
+                name='grind'
                 defaultValue={defaultValues.grind}
                 // defaultValue="0"
-                type="number"
-                pattern="^-?[0-9]\d*\.?\d*$"
-                variant="outlined"
+                type='number'
+                pattern='^-?[0-9]\d*\.?\d*$'
+                variant='outlined'
                 InputLabelProps={{
                   shrink: true,
                 }}
@@ -195,21 +193,21 @@ export default function NewShot({ setBrewsList }) {
               <p className={classes.errorMessage}>{errors.grind?.message}</p>
             </div>
             <div className={classes.finalWeight}>
-              <FormHelperText id="outlined-weight-helper-text">
+              <FormHelperText id='outlined-weight-helper-text'>
                 Final Weight (g)
               </FormHelperText>
               <Controller
                 as={<OutlinedInput />}
-                id="outlined-adornment-weight"
+                id='outlined-adornment-weight'
                 onChange={handleChange('weight')}
                 rules={{ required: true, maxLength: 2, min: 1, max: 80 }}
-                name="weight"
+                name='weight'
                 defaultValue={defaultValues.weight}
                 // defaultValue="0"
-                type="number"
+                type='number'
                 control={control}
-                pattern="^-?[0-9]\d*\.?\d*$"
-                aria-describedby="outlined-weight-helper-text"
+                pattern='^-?[0-9]\d*\.?\d*$'
+                aria-describedby='outlined-weight-helper-text'
                 inputProps={{
                   'aria-label': 'weight',
                 }}
@@ -220,30 +218,30 @@ export default function NewShot({ setBrewsList }) {
             <TextField
               className={classes.padding}
               autoFocus
-              margin="dense"
+              margin='dense'
               inputRef={register}
-              name="notes"
+              name='notes'
               defaultValue={defaultValues.notes}
-              id="notes"
-              label="Notes"
-              type="text"
+              id='notes'
+              label='Notes'
+              type='text'
               fullWidth
             />
             <p className={classes.errorMessage}>{errors.notes?.message}</p>
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
-              <Grid container justify="space-around">
+              <Grid container justify='space-around'>
                 <Controller
                   as={<KeyboardDatePicker />}
                   disableToolbar
-                  variant="inline"
-                  format="dd/MM/yyyy"
-                  margin="normal"
-                  name="brewDate"
+                  variant='inline'
+                  format='dd/MM/yyyy'
+                  margin='normal'
+                  name='brewDate'
                   defaultValue={defaultValues.brewDate}
                   control={control}
                   // defaultValue="2021-01-01"
-                  id="date-picker-inline"
-                  label="Brewed on: "
+                  id='date-picker-inline'
+                  label='Brewed on: '
                   value={selectedDate}
                   onChange={(date) => handleDateChange(date)}
                   fullWidth
@@ -254,10 +252,10 @@ export default function NewShot({ setBrewsList }) {
               </Grid>
             </MuiPickersUtilsProvider>
             <DialogActions>
-              <Button onClick={handleClose} color="primary">
+              <Button onClick={handleClose} color='primary'>
                 Cancel
               </Button>
-              <Button type="submit" color="primary">
+              <Button type='submit' color='primary'>
                 Submit
               </Button>
             </DialogActions>

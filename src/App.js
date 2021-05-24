@@ -1,9 +1,7 @@
 import React from 'react';
 
 import Home from './pages/home';
-import Login from './pages/login';
 import Beans from './pages/beans';
-import Register from './pages/register';
 import Brew from './pages/brews';
 
 import GlobalStyle from './styles/GlobalStyle';
@@ -17,11 +15,9 @@ const App = () => {
       <GlobalStyle />
       <StyledApp>
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/beans" exact component={Beans} />
-          <Route path="/brews" component={Brew} />
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
+          <Route path='/' exact component={Home} />
+          <Route path='/beans' exact component={Beans} />
+          <Route path='/brews' component={Brew} />
         </Switch>
       </StyledApp>
     </Router>

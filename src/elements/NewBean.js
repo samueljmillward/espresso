@@ -72,8 +72,6 @@ export default function NewBean({ setBeansList }) {
     setBeansList((old) => [...old, data]);
   };
 
-  console.log({ errors });
-
   const [open, setOpen] = React.useState(false);
 
   const [selectedDate, setSelectedDate] = React.useState(new Date());
