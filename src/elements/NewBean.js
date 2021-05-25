@@ -37,7 +37,7 @@ const schema = yup.object().shape({
 });
 
 const useStyles = makeStyles((theme) => ({
-  addButton: {
+  buttons: {
     display: 'flex',
     justifyContent: 'flex-end',
     padding: '32px',
@@ -45,6 +45,15 @@ const useStyles = makeStyles((theme) => ({
   errorMessage: {
     color: '#AC3232',
     fontSize: '16px',
+  },
+  addButton: {
+    backgroundColor: '#303f9f',
+    marginRight: '5px',
+    color: '#fff',
+  },
+  deleteButton: {
+    backgroundColor: '#AC3232',
+    color: '#fff',
   },
 }));
 
@@ -96,10 +105,26 @@ export default function NewBean({ setBeansList }) {
     setOpen(false);
   };
 
+  const clearData = () => {
+    window.localStorage.clear();
+    window.location.reload();
+  };
+
   return (
-    <div className={classes.addButton}>
-      <Button variant='contained' color='primary' onClick={handleClickOpen}>
+    <div className={classes.buttons}>
+      <Button
+        className={classes.addButton}
+        variant='contained'
+        onClick={handleClickOpen}
+      >
         Add Bean
+      </Button>
+      <Button
+        className={classes.deleteButton}
+        variant='contained'
+        onClick={clearData}
+      >
+        Delete Brews
       </Button>
       <Dialog
         open={open}

@@ -65,6 +65,7 @@ const useStyles = makeStyles((theme) => ({
   addButton: {
     backgroundColor: '#303f9f',
     marginRight: '5px',
+    color: '#fff',
   },
   deleteButton: {
     backgroundColor: '#AC3232',
@@ -130,7 +131,6 @@ export default function NewShot({ setBrewsList }) {
       <Button
         className={classes.addButton}
         variant='contained'
-        color='primary'
         onClick={handleClickOpen}
       >
         New Shot
