@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'flex-end',
   },
-  addButton: {
+  buttons: {
     display: 'flex',
     justifyContent: 'flex-end',
     padding: '32px',
@@ -61,6 +61,14 @@ const useStyles = makeStyles((theme) => ({
   errorMessage: {
     color: '#AC3232',
     fontSize: '16px',
+  },
+  addButton: {
+    backgroundColor: '#303f9f',
+    marginRight: '5px',
+  },
+  deleteButton: {
+    backgroundColor: '#AC3232',
+    color: '#fff',
   },
 }));
 
@@ -112,10 +120,27 @@ export default function NewShot({ setBrewsList }) {
     setOpen(false);
   };
 
+  const clearData = () => {
+    window.localStorage.clear();
+    window.location.reload();
+  };
+
   return (
-    <div className={classes.addButton}>
-      <Button variant='contained' color='primary' onClick={handleClickOpen}>
+    <div className={classes.buttons}>
+      <Button
+        className={classes.addButton}
+        variant='contained'
+        color='primary'
+        onClick={handleClickOpen}
+      >
         New Shot
+      </Button>
+      <Button
+        className={classes.deleteButton}
+        variant='contained'
+        onClick={clearData}
+      >
+        Delete Brews
       </Button>
       <Dialog
         open={open}
