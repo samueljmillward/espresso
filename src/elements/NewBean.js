@@ -124,7 +124,7 @@ export default function NewBean({ setBeansList }) {
         variant='contained'
         onClick={clearData}
       >
-        Delete Brews
+        Delete Beans
       </Button>
       <Dialog
         open={open}

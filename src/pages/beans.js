@@ -33,7 +33,6 @@ export default function Beans() {
   const [beans, setBeansList] = useLocalStorage([], 'beans');
 
   const reversedBeans = beans.slice().reverse();
-  // Returns bean list by most recent first
 
   return (
     <>
