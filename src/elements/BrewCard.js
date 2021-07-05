@@ -3,15 +3,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-// import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
 import Container from '@material-ui/core/Container';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
-
-// import beans from '../images/beans.jpg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -71,42 +68,36 @@ export default function BrewCard({ brews }) {
   };
 
   return (
-    <Card className={classes.root} variant="outlined">
+    <Card className={classes.root} variant='outlined'>
       <CardContent>
         <Container className={classes.container}>
-          <Typography variant="h5" component="h2">
+          <Typography variant='h5' component='h2'>
             {brews.name}
           </Typography>
-          <Typography className={classes.date} color="textSecondary">
+          <Typography className={classes.date} color='textSecondary'>
             Brewed: {brews.brewDate} ago
           </Typography>
         </Container>
-        <Typography className={classes.paddingBottom} variant="caption">
+        <Typography className={classes.paddingBottom} variant='caption'>
           Espresso
         </Typography>
         <Container className={classes.paddingBottom}>
-          <Typography variant="h6" color="textSecondary">
+          <Typography variant='h6' color='textSecondary'>
             Dry Weight: {brews.dryWeight}g
           </Typography>
-          <Typography variant="h6" color="textSecondary">
+          <Typography variant='h6' color='textSecondary'>
             Grind: {brews.grind}
           </Typography>
         </Container>
         <Container className={classes.container}>
-          <Typography variant="h6" color="textSecondary">
+          <Typography variant='h6' color='textSecondary'>
             Final Weight: {brews.weight}g
           </Typography>
-          <Typography variant="h6" color="textSecondary">
+          <Typography variant='h6' color='textSecondary'>
             Ratio: {calculateRatio(brews.dryWeight, brews.weight)}
           </Typography>
         </Container>
       </CardContent>
-      {/* <CardMedia
-        component="img"
-        style={{ height: '300px' }}
-        src={beans}
-        title="House Espresso"
-      /> */}
       <CardActions style={{ padding: 0 }}>
         <IconButton
           className={clsx(classes.expand, {
@@ -114,15 +105,15 @@ export default function BrewCard({ brews }) {
           })}
           onClick={handleExpandClick}
           aria-expanded={expanded}
-          aria-label="show more"
+          aria-label='show more'
         >
           <ExpandMoreIcon />
         </IconButton>
       </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
+      <Collapse in={expanded} timeout='auto' unmountOnExit>
         <CardContent>
-          <Typography variant="body1">Notes:</Typography>
-          <Typography variant="body2">{brews.notes}</Typography>
+          <Typography variant='body1'>Notes:</Typography>
+          <Typography variant='body2'>{brews.notes}</Typography>
         </CardContent>
       </Collapse>
     </Card>

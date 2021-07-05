@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-// import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
 import Container from '@material-ui/core/Container';
 import Collapse from '@material-ui/core/Collapse';
@@ -11,8 +10,6 @@ import IconButton from '@material-ui/core/IconButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
-
-// import beans from '../images/beans.jpg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -74,12 +71,6 @@ export default function BeanCard({ bean }) {
           <Typography color='textSecondary'>{bean.weight}g</Typography>
         </Container>
       </CardContent>
-      {/* <CardMedia
-        component="img"
-        style={{ height: '300px' }}
-        src={beans}
-        title="House Espresso"
-      /> */}
       <CardActions className={classes.paddingTop}>
         <IconButton aria-label='add to favorites'>
           <FavoriteIcon />

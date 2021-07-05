@@ -53,7 +53,6 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  focusVisible: {},
   imageButton: {
     position: 'absolute',
     left: 0,
@@ -127,9 +126,9 @@ export default function HomeButtons() {
             <span className={classes.imageBackdrop} />
             <span className={classes.imageButton}>
               <Typography
-                component="span"
-                variant="subtitle1"
-                color="inherit"
+                component='span'
+                variant='subtitle1'
+                color='inherit'
                 className={classes.imageTitle}
               >
                 {image.title}
