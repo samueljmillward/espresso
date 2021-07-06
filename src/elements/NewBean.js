@@ -10,7 +10,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import DateFnsUtils from '@date-io/date-fns';
-import { formatDistanceToNow } from 'date-fns';
+import { format } from 'date-fns';
 import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
@@ -76,7 +76,7 @@ export default function NewBean({ setBeansList }) {
     handleClose();
     console.clear();
     console.log({ data });
-    data.roastDate = formatDistanceToNow(data.roastDate, 'dd-MM-yyyy');
+    data.roastDate = format(data.roastDate, 'dd-MM-yyyy');
     setBeansList((old) => [...old, data]);
   };
 

@@ -58,7 +58,7 @@ export default function BeanCard({ bean }) {
           color='textSecondary'
           gutterBottom
         >
-          Roast Date: {bean.roastDate} ago
+          Roast Date: {bean.roastDate}
         </Typography>
         <Typography variant='h5' component='h2'>
           {bean.name}
