@@ -75,7 +75,7 @@ export default function BrewCard({ brews }) {
             {brews.name}
           </Typography>
           <Typography className={classes.date} color='textSecondary'>
-            Brewed: {brews.brewDate} ago
+            Brewed: {brews.brewDate}
           </Typography>
         </Container>
         <Typography className={classes.paddingBottom} variant='caption'>
