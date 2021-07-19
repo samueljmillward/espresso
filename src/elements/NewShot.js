@@ -72,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const defaultValues = {
+export const defaultValues = {
   name: 'Old Brown Java',
   dryWeight: 18,
   grind: 3,
