@@ -15,3 +15,10 @@ describe('returns expected data types', () => {
     expect(defaultValues).toEqual(beanSchema);
   });
 });
+
+describe('renders UI', () => {
+  test('NewBean form', () => {
+    const wrapper = shallow(<NewBean />);
+    expect(wrapper).toMatchSnapshot();
+  });
+});

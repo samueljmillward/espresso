@@ -1,4 +1,6 @@
-import { defaultValues } from '../src/elements/NewShot';
+import React from 'react';
+import { shallow } from 'enzyme';
+import NewShot, { defaultValues } from '../src/elements/NewShot';
 
 describe('returns expected data types', () => {
   test('defaultValues match schema', () => {
@@ -11,5 +13,12 @@ describe('returns expected data types', () => {
       brewDate: expect.any(Object),
     };
     expect(defaultValues).toEqual(shotSchema);
+  });
+});
+
+describe('renders UI', () => {
+  test('NewShot form', () => {
+    const wrapper = shallow(<NewShot />);
+    expect(wrapper).toMatchSnapshot();
   });
 });

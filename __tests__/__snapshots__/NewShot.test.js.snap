@@ -1,0 +1,404 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders UI NewShot form 1`] = `
+<div
+  className="makeStyles-buttons-2"
+>
+  <WithStyles(ForwardRef(Button))
+    className="makeStyles-addButton-4"
+    onClick={[Function]}
+    variant="contained"
+  >
+    New Shot
+  </WithStyles(ForwardRef(Button))>
+  <WithStyles(ForwardRef(Button))
+    className="makeStyles-deleteButton-5"
+    onClick={[Function]}
+    variant="contained"
+  >
+    Delete Brews
+  </WithStyles(ForwardRef(Button))>
+  <WithStyles(ForwardRef(Dialog))
+    aria-labelledby="form-dialog-title"
+    onClose={[Function]}
+    open={true}
+  >
+    <WithStyles(ForwardRef(DialogTitle))
+      id="form-dialog-title"
+    >
+      New Espresso Shot
+    </WithStyles(ForwardRef(DialogTitle))>
+    <form
+      onSubmit={[Function]}
+    >
+      <WithStyles(ForwardRef(DialogContent))>
+        <WithStyles(ForwardRef(TextField))
+          autoFocus={true}
+          defaultValue="Old Brown Java"
+          fullWidth={true}
+          id="name"
+          inputRef={[Function]}
+          label="Name"
+          margin="dense"
+          name="name"
+          type="text"
+        />
+        <p
+          className="makeStyles-errorMessage-3"
+        />
+        <div
+          className="makeStyles-weightPickers-1"
+        >
+          <div>
+            <WithStyles(ForwardRef(TextField))
+              InputLabelProps={
+                Object {
+                  "shrink": true,
+                }
+              }
+              aria-describedby="outlined-weight-helper-text"
+              defaultValue={18}
+              id="standard-number"
+              inputRef={[Function]}
+              label="Dry Weight (g)"
+              name="dryWeight"
+              pattern="^-?[0-9]\\\\d*\\\\.?\\\\d*$"
+              type="number"
+              variant="outlined"
+            />
+            <p
+              className="makeStyles-errorMessage-3"
+            />
+          </div>
+          <WithStyles(ForwardRef(TextField))
+            InputLabelProps={
+              Object {
+                "shrink": true,
+              }
+            }
+            defaultValue={3}
+            id="standard-number"
+            inputRef={[Function]}
+            label="Grind"
+            name="grind"
+            pattern="^-?[0-9]\\\\d*\\\\.?\\\\d*$"
+            type="number"
+            variant="outlined"
+          />
+          <p
+            className="makeStyles-errorMessage-3"
+          />
+        </div>
+        <div>
+          <WithStyles(ForwardRef(FormHelperText))
+            id="outlined-weight-helper-text"
+          >
+            Final Weight (g)
+          </WithStyles(ForwardRef(FormHelperText))>
+          <Controller
+            aria-describedby="outlined-weight-helper-text"
+            as={<WithStyles(ForwardRef(OutlinedInput)) />}
+            control={
+              Object {
+                "defaultValuesRef": Object {
+                  "current": Object {},
+                },
+                "fieldArrayDefaultValuesRef": Object {
+                  "current": Object {},
+                },
+                "fieldArrayNamesRef": Object {
+                  "current": Set {},
+                },
+                "fieldArrayValuesRef": Object {
+                  "current": Object {},
+                },
+                "fieldsRef": Object {
+                  "current": Object {},
+                },
+                "fieldsWithValidationRef": Object {
+                  "current": Object {},
+                },
+                "formState": Object {
+                  "dirtyFields": Object {},
+                  "errors": Object {},
+                  "isDirty": false,
+                  "isSubmitSuccessful": false,
+                  "isSubmitted": false,
+                  "isSubmitting": false,
+                  "isValid": false,
+                  "isValidating": false,
+                  "submitCount": 0,
+                  "touched": Object {},
+                },
+                "formStateRef": Object {
+                  "current": Object {
+                    "dirtyFields": Object {},
+                    "errors": Object {},
+                    "isDirty": false,
+                    "isSubmitSuccessful": false,
+                    "isSubmitted": false,
+                    "isSubmitting": false,
+                    "isValid": false,
+                    "isValidating": false,
+                    "submitCount": 0,
+                    "touched": Object {},
+                  },
+                },
+                "getValues": [Function],
+                "isFormDirty": [Function],
+                "mode": Object {
+                  "isOnAll": false,
+                  "isOnBlur": false,
+                  "isOnChange": false,
+                  "isOnSubmit": true,
+                  "isOnTouch": false,
+                },
+                "reValidateMode": Object {
+                  "isReValidateOnBlur": false,
+                  "isReValidateOnChange": true,
+                },
+                "readFormStateRef": Object {
+                  "current": Object {
+                    "constructor": true,
+                    "dirtyFields": true,
+                    "errors": true,
+                    "isDirty": true,
+                    "isSubmitSuccessful": true,
+                    "isSubmitted": true,
+                    "isSubmitting": true,
+                    "isValid": true,
+                    "isValidating": true,
+                    "submitCount": true,
+                    "touched": true,
+                  },
+                },
+                "register": [Function],
+                "removeFieldEventListener": [Function],
+                "resetFieldArrayFunctionRef": Object {
+                  "current": Object {},
+                },
+                "setValue": [Function],
+                "shallowFieldsStateRef": Object {
+                  "current": Object {},
+                },
+                "shouldUnregister": true,
+                "trigger": [Function],
+                "unregister": [Function],
+                "updateFormState": [Function],
+                "updateWatchedValue": [Function],
+                "useWatchFieldsRef": Object {
+                  "current": Object {},
+                },
+                "useWatchRenderFunctionsRef": Object {
+                  "current": Object {},
+                },
+                "validFieldsRef": Object {
+                  "current": Object {},
+                },
+                "validateResolver": [Function],
+                "watchInternal": [Function],
+              }
+            }
+            defaultValue={36}
+            id="outlined-adornment-weight"
+            inputProps={
+              Object {
+                "aria-label": "weight",
+              }
+            }
+            labelWidth={0}
+            name="weight"
+            onChange={[Function]}
+            pattern="^-?[0-9]\\\\d*\\\\.?\\\\d*$"
+            rules={
+              Object {
+                "max": 80,
+                "maxLength": 2,
+                "min": 1,
+                "required": true,
+              }
+            }
+            type="number"
+          />
+          <p
+            className="makeStyles-errorMessage-3"
+          />
+        </div>
+        <WithStyles(ForwardRef(TextField))
+          autoFocus={true}
+          defaultValue="Slightly bitter"
+          fullWidth={true}
+          id="notes"
+          inputRef={[Function]}
+          label="Notes"
+          margin="dense"
+          name="notes"
+          type="text"
+        />
+        <p
+          className="makeStyles-errorMessage-3"
+        />
+        <MuiPickersUtilsProvider
+          utils={[Function]}
+        >
+          <WithStyles(ForwardRef(Grid))
+            container={true}
+            justify="space-around"
+          >
+            <Controller
+              KeyboardButtonProps={
+                Object {
+                  "aria-label": "change date",
+                }
+              }
+              as={
+                <PickerWithState
+                  allowKeyboardControl={true}
+                  invalidDateMessage="Invalid Date Format"
+                  maxDate={2100-01-01T00:00:00.000Z}
+                  maxDateMessage="Date should not be after maximal date"
+                  minDate={1900-01-01T00:00:00.000Z}
+                  minDateMessage="Date should not be before minimal date"
+                  openTo="date"
+                  views={
+                    Array [
+                      "year",
+                      "date",
+                    ]
+                  }
+                />
+              }
+              control={
+                Object {
+                  "defaultValuesRef": Object {
+                    "current": Object {},
+                  },
+                  "fieldArrayDefaultValuesRef": Object {
+                    "current": Object {},
+                  },
+                  "fieldArrayNamesRef": Object {
+                    "current": Set {},
+                  },
+                  "fieldArrayValuesRef": Object {
+                    "current": Object {},
+                  },
+                  "fieldsRef": Object {
+                    "current": Object {},
+                  },
+                  "fieldsWithValidationRef": Object {
+                    "current": Object {},
+                  },
+                  "formState": Object {
+                    "dirtyFields": Object {},
+                    "errors": Object {},
+                    "isDirty": false,
+                    "isSubmitSuccessful": false,
+                    "isSubmitted": false,
+                    "isSubmitting": false,
+                    "isValid": false,
+                    "isValidating": false,
+                    "submitCount": 0,
+                    "touched": Object {},
+                  },
+                  "formStateRef": Object {
+                    "current": Object {
+                      "dirtyFields": Object {},
+                      "errors": Object {},
+                      "isDirty": false,
+                      "isSubmitSuccessful": false,
+                      "isSubmitted": false,
+                      "isSubmitting": false,
+                      "isValid": false,
+                      "isValidating": false,
+                      "submitCount": 0,
+                      "touched": Object {},
+                    },
+                  },
+                  "getValues": [Function],
+                  "isFormDirty": [Function],
+                  "mode": Object {
+                    "isOnAll": false,
+                    "isOnBlur": false,
+                    "isOnChange": false,
+                    "isOnSubmit": true,
+                    "isOnTouch": false,
+                  },
+                  "reValidateMode": Object {
+                    "isReValidateOnBlur": false,
+                    "isReValidateOnChange": true,
+                  },
+                  "readFormStateRef": Object {
+                    "current": Object {
+                      "constructor": true,
+                      "dirtyFields": true,
+                      "errors": true,
+                      "isDirty": true,
+                      "isSubmitSuccessful": true,
+                      "isSubmitted": true,
+                      "isSubmitting": true,
+                      "isValid": true,
+                      "isValidating": true,
+                      "submitCount": true,
+                      "touched": true,
+                    },
+                  },
+                  "register": [Function],
+                  "removeFieldEventListener": [Function],
+                  "resetFieldArrayFunctionRef": Object {
+                    "current": Object {},
+                  },
+                  "setValue": [Function],
+                  "shallowFieldsStateRef": Object {
+                    "current": Object {},
+                  },
+                  "shouldUnregister": true,
+                  "trigger": [Function],
+                  "unregister": [Function],
+                  "updateFormState": [Function],
+                  "updateWatchedValue": [Function],
+                  "useWatchFieldsRef": Object {
+                    "current": Object {},
+                  },
+                  "useWatchRenderFunctionsRef": Object {
+                    "current": Object {},
+                  },
+                  "validFieldsRef": Object {
+                    "current": Object {},
+                  },
+                  "validateResolver": [Function],
+                  "watchInternal": [Function],
+                }
+              }
+              defaultValue={2021-05-15T00:00:00.000Z}
+              disableToolbar={true}
+              format="dd/MM/yyyy"
+              fullWidth={true}
+              id="date-picker-inline"
+              label="Brewed on: "
+              margin="normal"
+              name="brewDate"
+              onChange={[Function]}
+              value={2021-07-20T14:16:52.773Z}
+              variant="inline"
+            />
+          </WithStyles(ForwardRef(Grid))>
+        </MuiPickersUtilsProvider>
+        <WithStyles(ForwardRef(DialogActions))>
+          <WithStyles(ForwardRef(Button))
+            color="primary"
+            onClick={[Function]}
+          >
+            Cancel
+          </WithStyles(ForwardRef(Button))>
+          <WithStyles(ForwardRef(Button))
+            color="primary"
+            type="submit"
+          >
+            Submit
+          </WithStyles(ForwardRef(Button))>
+        </WithStyles(ForwardRef(DialogActions))>
+      </WithStyles(ForwardRef(DialogContent))>
+    </form>
+  </WithStyles(ForwardRef(Dialog))>
+</div>
+`;
