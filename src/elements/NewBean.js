@@ -60,7 +60,7 @@ export const defaultValues = {
   name: 'Old Brown Java',
   origin: 'Brazil',
   weight: 250,
-  roastDate: new Date(),
+  roastDate: new Date(Date.UTC(2021, 4, 15)),
   flavours: 'smokey, brown sugar',
   notes: 'Peak flavour at 1 week',
 };
@@ -82,7 +82,9 @@ export default function NewBean({ setBeansList }) {
 
   const [open, setOpen] = React.useState(false);
 
-  const [selectedDate, setSelectedDate] = React.useState(new Date());
+  const [selectedDate, setSelectedDate] = React.useState(
+    new Date(Date.UTC(2021, 4, 15))
+  );
 
   const [values, setValues] = React.useState({
     weight: '',

@@ -1,4 +1,6 @@
-import { defaultValues } from '../src/elements/NewBean';
+import React from 'react';
+import { shallow } from 'enzyme';
+import NewBean, { defaultValues } from '../src/elements/NewBean';
 
 describe('returns expected data types', () => {
   test('defaultValues match schema', () => {

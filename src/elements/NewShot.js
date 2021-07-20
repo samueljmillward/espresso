@@ -47,7 +47,7 @@ const schema = yup.object().shape({
   notes: yup.string().max(75, "Sorry, that's too many notes!"),
 });
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   weightPickers: {
     display: 'flex',
     justifyContent: 'flex-end',
@@ -78,7 +78,7 @@ export const defaultValues = {
   grind: 3,
   weight: 36,
   notes: 'Slightly bitter',
-  brewDate: new Date(),
+  brewDate: new Date(Date.UTC(2021, 4, 15)),
 };
 
 export default function NewShot({ setBrewsList }) {
@@ -258,7 +258,6 @@ export default function NewShot({ setBrewsList }) {
                   name='brewDate'
                   defaultValue={defaultValues.brewDate}
                   control={control}
-                  // defaultValue="2021-01-01"
                   id='date-picker-inline'
                   label='Brewed on: '
                   value={selectedDate}
