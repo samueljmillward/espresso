@@ -98,7 +98,9 @@ export default function NewShot({ setBrewsList }) {
 
   const [open, setOpen] = React.useState(true);
 
-  const [selectedDate, setSelectedDate] = React.useState(new Date());
+  const [selectedDate, setSelectedDate] = React.useState(
+    new Date(Date.UTC(2021, 4, 15))
+  );
 
   const [values, setValues] = React.useState({
     weight: '',
@@ -177,7 +179,6 @@ export default function NewShot({ setBrewsList }) {
                   })}
                   name='dryWeight'
                   defaultValue={defaultValues.dryWeight}
-                  // defaultValue="0"
                   type='number'
                   pattern='^-?[0-9]\d*\.?\d*$'
                   aria-describedby='outlined-weight-helper-text'
@@ -201,7 +202,6 @@ export default function NewShot({ setBrewsList }) {
                 })}
                 name='grind'
                 defaultValue={defaultValues.grind}
-                // defaultValue="0"
                 type='number'
                 pattern='^-?[0-9]\d*\.?\d*$'
                 variant='outlined'
@@ -222,7 +222,6 @@ export default function NewShot({ setBrewsList }) {
                 rules={{ required: true, maxLength: 2, min: 1, max: 80 }}
                 name='weight'
                 defaultValue={defaultValues.weight}
-                // defaultValue="0"
                 type='number'
                 control={control}
                 pattern='^-?[0-9]\d*\.?\d*$'

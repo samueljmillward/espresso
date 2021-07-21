@@ -378,7 +378,7 @@ exports[`renders UI NewShot form 1`] = `
               margin="normal"
               name="brewDate"
               onChange={[Function]}
-              value={2021-07-20T14:16:52.773Z}
+              value={2021-05-15T00:00:00.000Z}
               variant="inline"
             />
           </WithStyles(ForwardRef(Grid))>
