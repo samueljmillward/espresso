@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders UI Navbar 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <WithStyles(ForwardRef(ButtonBase))
+    className="makeStyles-image-2"
+    component={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "propTypes": Object {
+          "innerRef": [Function],
+          "onClick": [Function],
+          "replace": [Function],
+          "target": [Function],
+          "to": [Function],
+        },
+        "render": [Function],
+      }
+    }
+    focusRipple={true}
+    style={
+      Object {
+        "width": "50%",
+      }
+    }
+    to="/beans"
+  >
+    <span
+      className="makeStyles-imageSrc-4"
+      style={
+        Object {
+          "backgroundImage": "url(/images/beans.jpg)",
+        }
+      }
+    />
+    <span
+      className="makeStyles-imageBackdrop-5"
+    />
+    <span
+      className="makeStyles-imageButton-3"
+    >
+      <WithStyles(ForwardRef(Typography))
+        className="makeStyles-imageTitle-6"
+        color="inherit"
+        component="span"
+        variant="subtitle1"
+      >
+        My Beans
+      </WithStyles(ForwardRef(Typography))>
+    </span>
+  </WithStyles(ForwardRef(ButtonBase))>
+  <WithStyles(ForwardRef(ButtonBase))
+    className="makeStyles-image-2"
+    component={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "propTypes": Object {
+          "innerRef": [Function],
+          "onClick": [Function],
+          "replace": [Function],
+          "target": [Function],
+          "to": [Function],
+        },
+        "render": [Function],
+      }
+    }
+    focusRipple={true}
+    style={
+      Object {
+        "width": "50%",
+      }
+    }
+    to="/brews"
+  >
+    <span
+      className="makeStyles-imageSrc-4"
+      style={
+        Object {
+          "backgroundImage": "url(/images/machine.jpg)",
+        }
+      }
+    />
+    <span
+      className="makeStyles-imageBackdrop-5"
+    />
+    <span
+      className="makeStyles-imageButton-3"
+    >
+      <WithStyles(ForwardRef(Typography))
+        className="makeStyles-imageTitle-6"
+        color="inherit"
+        component="span"
+        variant="subtitle1"
+      >
+        Pull A Shot
+      </WithStyles(ForwardRef(Typography))>
+    </span>
+  </WithStyles(ForwardRef(ButtonBase))>
+</div>
+`;
