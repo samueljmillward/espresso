@@ -106,7 +106,7 @@ export default function HomeButtons() {
   return (
     <div className={classes.root}>
       {buttons.map((image, index) => (
-        <>
+        <React.Fragment key={index}>
           <ButtonBase
             component={RouterLink}
             to={image.to}
@@ -135,7 +135,7 @@ export default function HomeButtons() {
               </Typography>
             </span>
           </ButtonBase>
-        </>
+        </React.Fragment>
       ))}
     </div>
   );

@@ -46,7 +46,7 @@ export default function Beans() {
       >
         {reversedBeans.map((reversedBeans) => (
           <Grid item xs={12} sm={6} m={4}>
-            <BeanCard key={reversedBeans} bean={reversedBeans} />
+            <BeanCard key={reversedBeans.id} bean={reversedBeans} />
           </Grid>
         ))}
       </Grid>

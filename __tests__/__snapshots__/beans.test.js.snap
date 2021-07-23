@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders UI beans page 1`] = `
+<Fragment>
+  <Navbar />
+  <WithStyles(ForwardRef(Grid))
+    className="makeStyles-gridContainer-1"
+    container={true}
+    justify="center"
+    spacing={4}
+  />
+  <NewBean
+    className="makeStyles-addButton-3"
+    setBeansList={[Function]}
+  />
+</Fragment>
+`;

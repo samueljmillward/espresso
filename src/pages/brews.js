@@ -44,9 +44,9 @@ export default function Brew() {
         className={classes.gridContainer}
         justify='center'
       >
-        {reversedBrews.map((reversedBrews) => (
+        {reversedBrews.map((reversedBrews, index) => (
           <Grid item xs={12} sm={6} m={4}>
-            <BrewCard key={reversedBrews} brews={reversedBrews} />
+            <BrewCard key={reversedBrews.id} brews={reversedBrews} />
           </Grid>
         ))}
       </Grid>

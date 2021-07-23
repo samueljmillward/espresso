@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import HomeButtons from '../src/elements/HomeButtons';
+import Brew from '../src/pages/brews';
 
 describe('renders UI', () => {
-  it('HomePage', () => {
-    const wrapper = shallow(<HomeButtons />);
+  it('brews page', () => {
+    const wrapper = shallow(<Brew />);
     expect(wrapper).toMatchSnapshot();
   });
 });

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders UI Navbar 1`] = `
+exports[`renders UI HomePage 1`] = `
 <div
   className="makeStyles-root-1"
 >
