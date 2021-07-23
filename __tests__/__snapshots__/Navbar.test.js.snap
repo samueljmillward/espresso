@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders UI Navbar 1`] = `
+<styled.div>
+  <styled.a
+    component={
+      Object {
+        "$$typeof": Symbol(react.forward_ref),
+        "propTypes": Object {
+          "innerRef": [Function],
+          "onClick": [Function],
+          "replace": [Function],
+          "target": [Function],
+          "to": [Function],
+        },
+        "render": [Function],
+      }
+    }
+    href="/"
+  >
+    Es
+    <span>
+      presso
+    </span>
+  </styled.a>
+  <styled.div
+    onClick={[Function]}
+  >
+    <span />
+    <span />
+    <span />
+  </styled.div>
+  <styled.div
+    isOpen={false}
+  >
+    <styled.a
+      href="/beans"
+    >
+      My Beans
+    </styled.a>
+    <styled.a
+      href="/brews"
+    >
+      Pull A Shot
+    </styled.a>
+    <styled.a>
+      <LoginButton />
+      <LogoutButton />
+    </styled.a>
+  </styled.div>
+</styled.div>
+`;
