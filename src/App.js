@@ -12,23 +12,23 @@ import { StyledApp } from './styles/StyledApp';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 const App = () => {
-  return (
-    <>
-      <Helmet>
-        <title>Espresso Tracker</title>
-      </Helmet>
-      <Router>
-        <GlobalStyle />
-        <StyledApp>
-          <Switch>
-            <Route path='/' exact component={Home} />
-            <Route path='/beans' exact component={Beans} />
-            <Route path='/brews' component={Brew} />
-          </Switch>
-        </StyledApp>
-      </Router>
-    </>
-  );
+    return (
+        <>
+            <Helmet>
+                <title>Espresso Tracker</title>
+            </Helmet>
+            <Router>
+                <GlobalStyle />
+                <StyledApp>
+                    <Switch>
+                        <Route path='/' exact component={Home} />
+                        <Route path='/beans' exact component={Beans} />
+                        <Route path='/brews' component={Brew} />
+                    </Switch>
+                </StyledApp>
+            </Router>
+        </>
+    );
 };
 
 export default App;

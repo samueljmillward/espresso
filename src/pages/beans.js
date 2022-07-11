@@ -8,49 +8,44 @@ import NewBean from '../elements/NewBean';
 import useLocalStorage from '../hooks/useLocalStorage';
 
 const useStyles = makeStyles((theme) => ({
-  gridContainer: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    paddingTop: '40px',
-    paddingLeft: '40px',
-    paddingRight: '40px',
-  },
-  root: {
-    '& > *': {
-      margin: theme.spacing(1),
+    gridContainer: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        paddingTop: '40px',
+        paddingLeft: '40px',
+        paddingRight: '40px',
     },
-  },
-  addButton: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    padding: '32px',
-  },
+    root: {
+        '& > *': {
+            margin: theme.spacing(1),
+        },
+    },
+    addButton: {
+        display: 'flex',
+        justifyContent: 'flex-end',
+        padding: '32px',
+    },
 }));
 
 export default function Beans() {
-  const classes = useStyles();
+    const classes = useStyles();
 
-  const [beans, setBeansList] = useLocalStorage([], 'beans');
+    const [beans, setBeansList] = useLocalStorage([], 'beans');
 
-  const reversedBeans = beans.slice().reverse();
+    const reversedBeans = beans.slice().reverse();
 
-  return (
-    <>
-      {console.log(beans)}
-      <Navbar />
-      <Grid
-        container
-        spacing={4}
-        className={classes.gridContainer}
-        justify='center'
-      >
-        {reversedBeans.map((reversedBeans) => (
-          <Grid item xs={12} sm={6} m={4}>
-            <BeanCard key={reversedBeans.id} bean={reversedBeans} />
-          </Grid>
-        ))}
-      </Grid>
-      <NewBean setBeansList={setBeansList} className={classes.addButton} />
-    </>
-  );
+    return (
+        <>
+            {console.log(beans)}
+            <Navbar />
+            <Grid container spacing={4} className={classes.gridContainer} justify='center'>
+                {reversedBeans.map((reversedBeans) => (
+                    <Grid item xs={12} sm={6} m={4}>
+                        <BeanCard key={reversedBeans.id} bean={reversedBeans} />
+                    </Grid>
+                ))}
+            </Grid>
+            <NewBean setBeansList={setBeansList} className={classes.addButton} />
+        </>
+    );
 }
