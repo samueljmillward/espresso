@@ -2,11 +2,10 @@ import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     footer: {
-        color: '#c46404',
-        backgroundColor: '#642b09',
-        paddingTop: '3em',
+        color: '#642b09',
+        paddingTop: '1.5rem',
         width: '100%',
         position: 'absolute',
         bottom: 0,
@@ -14,10 +13,7 @@ const useStyles = makeStyles((theme) => ({
     col: {
         display: 'flex',
         justifyContent: 'center',
-        flexDirection: 'row',
         alignItems: 'center',
-        margin: 0,
-        padding: '.2rem',
     },
 }));
 
@@ -26,9 +22,7 @@ const Footer = () => {
 
     return (
         <div className={classes.footer}>
-            <div>
-                <p className={classes.col}>&copy;{new Date().getFullYear()} Espresso</p>
-            </div>
+            <p className={classes.col}>&copy;{new Date().getFullYear()} Espresso</p>
         </div>
     );
 };
