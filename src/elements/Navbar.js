@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import LoginButton from './LoginButton';
-import LogoutButton from './LogoutButton';
 
 import { Link as RouterLink } from 'react-router-dom';
 
@@ -23,10 +21,6 @@ const Navbar = () => {
             <Menu isOpen={isOpen}>
                 <MenuLink href='/beans'>My Beans</MenuLink>
                 <MenuLink href='/brews'>Pull A Shot</MenuLink>
-                <MenuLink>
-                    <LoginButton />
-                    <LogoutButton />
-                </MenuLink>
             </Menu>
         </Nav>
     );

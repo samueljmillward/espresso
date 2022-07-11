@@ -29,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        minWidth: 300,
         width: '100%',
         height: '75vh',
     },

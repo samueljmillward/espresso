@@ -43,10 +43,6 @@ exports[`renders UI Navbar 1`] = `
     >
       Pull A Shot
     </styled.a>
-    <styled.a>
-      <LoginButton />
-      <LogoutButton />
-    </styled.a>
   </styled.div>
 </styled.div>
 `;

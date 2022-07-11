@@ -16,10 +16,6 @@ If the user input is not matched to set schema values it returns the user with c
 
 Data is currently being stored using the [**LocalStorage**](https://developer.mozilla.org/en-US/docs/Web/API/Storage) API.
 
-## Login/Logout
-
-Basic user account system using [**Auth0**](https://auth0.com/).
-
 ## Styling
 
 Styled using [**styled-components**](https://www.styled-components.com) and React UI Framework [**Material-UI**](https://material-ui.com/).

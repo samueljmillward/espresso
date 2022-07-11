@@ -6,7 +6,7 @@ exports[`renders UI beans page 1`] = `
   <WithStyles(ForwardRef(Grid))
     className="makeStyles-gridContainer-1"
     container={true}
-    justify="center"
+    justifyContent="center"
     spacing={4}
   />
   <NewBean
