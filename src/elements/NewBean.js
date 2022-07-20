@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -32,7 +32,7 @@ const schema = yup.object().shape({
         .integer(),
 });
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     buttons: {
         display: 'flex',
         justifyContent: 'flex-end',
@@ -77,11 +77,11 @@ export default function NewBean({ setBeansList }) {
         setBeansList((old) => [...old, data]);
     };
 
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
 
-    const [selectedDate, setSelectedDate] = React.useState(new Date(Date.UTC(2021, 4, 15)));
+    const [selectedDate, setSelectedDate] = useState(new Date(Date.UTC(2021, 4, 15)));
 
-    const [values, setValues] = React.useState({
+    const [values, setValues] = useState({
         weight: '',
     });
 

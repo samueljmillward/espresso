@@ -8,6 +8,9 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Grid from '@material-ui/core/Grid';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 import DateFnsUtils from '@date-io/date-fns';
 import { format } from 'date-fns';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
@@ -67,6 +70,23 @@ const useStyles = makeStyles(() => ({
         backgroundColor: '#AC3232',
         color: '#fff',
     },
+    modal: {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 400,
+        backgroundColor: '#ffff',
+        border: '2px solid #000',
+        boxShadow: 24,
+        padding: '2rem',
+    },
+    modalButtons: {
+        marginTop: '1rem',
+        display: 'flex',
+        justifyContent: 'center',
+        alignContent: 'center',
+    },
 }));
 
 export const defaultValues = {
@@ -86,14 +106,16 @@ export default function NewShot({ setBrewsList }) {
     });
 
     const onSubmit = (data) => {
-        handleClose();
+        handleFormClose();
         console.clear();
         console.log({ data });
         data.brewDate = format(data.brewDate, 'dd-MM-yyyy');
         setBrewsList((old) => [...old, data]);
     };
 
-    const [open, setOpen] = React.useState(true);
+    const [formOpen, setFormOpen] = React.useState(false);
+
+    const [modalOpen, setModalOpen] = React.useState(false);
 
     const [selectedDate, setSelectedDate] = React.useState(new Date(Date.UTC(2021, 4, 15)));
 
@@ -109,28 +131,56 @@ export default function NewShot({ setBrewsList }) {
         setValues({ ...values, [prop]: event.target.value });
     };
 
-    const handleClickOpen = () => {
-        setOpen(true);
+    const handleFormOpen = () => {
+        setFormOpen(true);
     };
 
-    const handleClose = () => {
-        setOpen(false);
+    const handleFormClose = () => {
+        setFormOpen(false);
+    };
+
+    const handleModalOpen = () => {
+        setModalOpen(true);
+    };
+
+    const handleModalClose = () => {
+        setModalOpen(false);
     };
 
     const clearData = () => {
         window.localStorage.clear();
         window.location.reload();
+        handleModalClose();
     };
 
     return (
         <div className={classes.buttons}>
-            <Button className={classes.addButton} variant='contained' onClick={handleClickOpen}>
+            <Button className={classes.addButton} variant='contained' onClick={handleFormOpen}>
                 New Shot
             </Button>
-            <Button className={classes.deleteButton} variant='contained' onClick={clearData}>
+            <Button className={classes.deleteButton} variant='contained' onClick={handleModalOpen}>
                 Delete Brews
             </Button>
-            <Dialog open={open} onClose={handleClose} aria-labelledby='form-dialog-title'>
+            <Modal
+                open={modalOpen}
+                onClose={handleModalClose}
+                aria-labelledby='modal-modal-title'
+                aria-describedby='modal-modal-description'
+            >
+                <Box className={classes.modal}>
+                    <Typography id='modal-modal-title' variant='h6' component='h2'>
+                        Warning!
+                    </Typography>
+                    <Typography id='modal-modal-description' sx={{ mt: 2 }}>
+                        Are you sure you want to delete all shots?
+                    </Typography>
+                    <div className={classes.modalButtons}>
+                        <Button onClick={clearData}>Yes</Button>
+                        <Button onClick={handleModalClose}>No</Button>
+                    </div>
+                </Box>
+            </Modal>
+            <Dialog open={formOpen} onClose={handleFormClose} aria-labelledby='form-dialog-title'>
                 <DialogTitle id='form-dialog-title'>New Espresso Shot</DialogTitle>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <DialogContent>
@@ -248,7 +298,7 @@ export default function NewShot({ setBrewsList }) {
                             </Grid>
                         </MuiPickersUtilsProvider>
                         <DialogActions>
-                            <Button onClick={handleClose} color='primary'>
+                            <Button onClick={handleFormClose} color='primary'>
                                 Cancel
                             </Button>
                             <Button type='submit' color='primary'>
