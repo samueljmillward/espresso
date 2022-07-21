@@ -106,7 +106,7 @@ export default function NewShot({ setBrewsList }) {
     });
 
     const onSubmit = (data) => {
-        handleFormClose();
+        handleFormOpen();
         console.clear();
         console.log({ data });
         data.brewDate = format(data.brewDate, 'dd-MM-yyyy');
@@ -132,25 +132,17 @@ export default function NewShot({ setBrewsList }) {
     };
 
     const handleFormOpen = () => {
-        setFormOpen(true);
-    };
-
-    const handleFormClose = () => {
-        setFormOpen(false);
+        setFormOpen((previous) => !previous);
     };
 
     const handleModalOpen = () => {
-        setModalOpen(true);
-    };
-
-    const handleModalClose = () => {
-        setModalOpen(false);
+        setModalOpen((previous) => !previous);
     };
 
     const clearData = () => {
         window.localStorage.clear();
         window.location.reload();
-        handleModalClose();
+        handleModalOpen();
     };
 
     return (
@@ -163,7 +155,7 @@ export default function NewShot({ setBrewsList }) {
             </Button>
             <Modal
                 open={modalOpen}
-                onClose={handleModalClose}
+                onClose={handleModalOpen}
                 aria-labelledby='modal-modal-title'
                 aria-describedby='modal-modal-description'
             >
@@ -176,11 +168,11 @@ export default function NewShot({ setBrewsList }) {
                     </Typography>
                     <div className={classes.modalButtons}>
                         <Button onClick={clearData}>Yes</Button>
-                        <Button onClick={handleModalClose}>No</Button>
+                        <Button onClick={handleModalOpen}>No</Button>
                     </div>
                 </Box>
             </Modal>
-            <Dialog open={formOpen} onClose={handleFormClose} aria-labelledby='form-dialog-title'>
+            <Dialog open={formOpen} onClose={handleFormOpen} aria-labelledby='form-dialog-title'>
                 <DialogTitle id='form-dialog-title'>New Espresso Shot</DialogTitle>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <DialogContent>
@@ -298,7 +290,7 @@ export default function NewShot({ setBrewsList }) {
                             </Grid>
                         </MuiPickersUtilsProvider>
                         <DialogActions>
-                            <Button onClick={handleFormClose} color='primary'>
+                            <Button onClick={handleFormOpen} color='primary'>
                                 Cancel
                             </Button>
                             <Button type='submit' color='primary'>
