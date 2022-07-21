@@ -9,6 +9,9 @@ import Grid from '@material-ui/core/Grid';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 import DateFnsUtils from '@date-io/date-fns';
 import { format } from 'date-fns';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
@@ -51,6 +54,23 @@ const useStyles = makeStyles(() => ({
         backgroundColor: '#AC3232',
         color: '#fff',
     },
+    modal: {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 400,
+        backgroundColor: '#ffff',
+        border: '2px solid #000',
+        boxShadow: 24,
+        padding: '2rem',
+    },
+    modalButtons: {
+        marginTop: '1rem',
+        display: 'flex',
+        justifyContent: 'center',
+        alignContent: 'center',
+    },
 }));
 
 export const defaultValues = {
@@ -70,14 +90,16 @@ export default function NewBean({ setBeansList }) {
     });
 
     const onSubmit = (data) => {
-        handleClose();
+        handleFormOpen();
         console.clear();
         console.log({ data });
         data.roastDate = format(data.roastDate, 'dd-MM-yyyy');
         setBeansList((old) => [...old, data]);
     };
 
-    const [open, setOpen] = useState(false);
+    const [formOpen, setFormOpen] = useState(false);
+
+    const [modalOpen, setModalOpen] = useState(false);
 
     const [selectedDate, setSelectedDate] = useState(new Date(Date.UTC(2021, 4, 15)));
 
@@ -93,28 +115,48 @@ export default function NewBean({ setBeansList }) {
         setValues({ ...values, [prop]: event.target.value });
     };
 
-    const handleClickOpen = () => {
-        setOpen(true);
+    const handleFormOpen = () => {
+        setFormOpen((previous) => !previous);
     };
 
-    const handleClose = () => {
-        setOpen(false);
+    const handleModalOpen = () => {
+        setModalOpen((previous) => !previous);
     };
 
     const clearData = () => {
         window.localStorage.clear();
         window.location.reload();
+        handleModalOpen();
     };
 
     return (
         <div className={classes.buttons}>
-            <Button className={classes.addButton} variant='contained' onClick={handleClickOpen}>
+            <Button className={classes.addButton} variant='contained' onClick={handleFormOpen}>
                 Add Bean
             </Button>
-            <Button className={classes.deleteButton} variant='contained' onClick={clearData}>
+            <Button className={classes.deleteButton} variant='contained' onClick={handleModalOpen}>
                 Delete Beans
             </Button>
-            <Dialog open={open} onClose={handleClose} aria-labelledby='form-dialog-title'>
+            <Modal
+                open={modalOpen}
+                onClose={handleModalOpen}
+                aria-labelledby='modal-modal-title'
+                aria-describedby='modal-modal-description'
+            >
+                <Box className={classes.modal}>
+                    <Typography id='modal-modal-title' variant='h6' component='h2'>
+                        Warning!
+                    </Typography>
+                    <Typography id='modal-modal-description' sx={{ mt: 2 }}>
+                        Are you sure you want to delete all beans?
+                    </Typography>
+                    <div className={classes.modalButtons}>
+                        <Button onClick={clearData}>Yes</Button>
+                        <Button onClick={handleModalOpen}>No</Button>
+                    </div>
+                </Box>
+            </Modal>
+            <Dialog open={formOpen} onClose={handleFormOpen} aria-labelledby='form-dialog-title'>
                 <DialogTitle id='form-dialog-title'>New Bean</DialogTitle>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <DialogContent>
@@ -205,7 +247,7 @@ export default function NewBean({ setBeansList }) {
                             fullWidth
                         />
                         <DialogActions>
-                            <Button onClick={handleClose} color='primary'>
+                            <Button onClick={handleFormOpen} color='primary'>
                                 Cancel
                             </Button>
                             <Button type='submit' color='primary'>
