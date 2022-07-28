@@ -81,11 +81,11 @@ const useStyles = makeStyles(() => ({
         boxShadow: 24,
         padding: '2rem',
     },
-    modalButtons: {
-        marginTop: '1rem',
+    modalCenter: {
         display: 'flex',
         justifyContent: 'center',
-        alignContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
     },
 }));
 
@@ -160,13 +160,17 @@ export default function NewShot({ setBrewsList }) {
                 aria-describedby='modal-modal-description'
             >
                 <Box className={classes.modal}>
-                    <Typography id='modal-modal-title' variant='h6'>
-                        Warning!
-                    </Typography>
-                    <Typography id='modal-modal-description'>Are you sure you want to delete all shots?</Typography>
-                    <div className={classes.modalButtons}>
-                        <Button onClick={clearData}>Yes</Button>
-                        <Button onClick={handleModalOpen}>No</Button>
+                    <div className={classes.modalCenter}>
+                        <Typography id='modal-warning' variant='h6'>
+                            Warning!
+                        </Typography>
+                        <Typography sx={{ mt: 1 }} id='modal-description'>
+                            Are you sure you want to delete all shots?
+                        </Typography>
+                        <Typography sx={{ mt: 2 }} id='modal-buttons'>
+                            <Button onClick={clearData}>Yes</Button>
+                            <Button onClick={handleModalOpen}>No</Button>
+                        </Typography>
                     </div>
                 </Box>
             </Modal>

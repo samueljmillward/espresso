@@ -151,7 +151,7 @@ export default function NewBean({ setBeansList }) {
                         <Typography sx={{ mt: 1 }} id='modal-description'>
                             Are you sure you want to delete all beans?
                         </Typography>
-                        <Typography sx={{ mt: 2 }}>
+                        <Typography sx={{ mt: 2 }} id='modal-buttons'>
                             <Button onClick={clearData}>Yes</Button>
                             <Button onClick={handleModalOpen}>No</Button>
                         </Typography>
