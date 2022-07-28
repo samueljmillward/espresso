@@ -160,12 +160,10 @@ export default function NewShot({ setBrewsList }) {
                 aria-describedby='modal-modal-description'
             >
                 <Box className={classes.modal}>
-                    <Typography id='modal-modal-title' variant='h6' component='h2'>
+                    <Typography id='modal-modal-title' variant='h6'>
                         Warning!
                     </Typography>
-                    <Typography id='modal-modal-description' sx={{ mt: 2 }}>
-                        Are you sure you want to delete all shots?
-                    </Typography>
+                    <Typography id='modal-modal-description'>Are you sure you want to delete all shots?</Typography>
                     <div className={classes.modalButtons}>
                         <Button onClick={clearData}>Yes</Button>
                         <Button onClick={handleModalOpen}>No</Button>

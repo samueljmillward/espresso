@@ -65,11 +65,11 @@ const useStyles = makeStyles(() => ({
         boxShadow: 24,
         padding: '2rem',
     },
-    modalButtons: {
-        marginTop: '1rem',
+    modalCenter: {
         display: 'flex',
         justifyContent: 'center',
-        alignContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
     },
 }));
 
@@ -140,19 +140,21 @@ export default function NewBean({ setBeansList }) {
             <Modal
                 open={modalOpen}
                 onClose={handleModalOpen}
-                aria-labelledby='modal-modal-title'
-                aria-describedby='modal-modal-description'
+                aria-labelledby='modal-warning'
+                aria-describedby='modal-description'
             >
                 <Box className={classes.modal}>
-                    <Typography id='modal-modal-title' variant='h6' component='h2'>
-                        Warning!
-                    </Typography>
-                    <Typography id='modal-modal-description' sx={{ mt: 2 }}>
-                        Are you sure you want to delete all beans?
-                    </Typography>
-                    <div className={classes.modalButtons}>
-                        <Button onClick={clearData}>Yes</Button>
-                        <Button onClick={handleModalOpen}>No</Button>
+                    <div className={classes.modalCenter}>
+                        <Typography id='modal-warning' variant='h6'>
+                            Warning!
+                        </Typography>
+                        <Typography sx={{ mt: 1 }} id='modal-description'>
+                            Are you sure you want to delete all beans?
+                        </Typography>
+                        <Typography sx={{ mt: 2 }}>
+                            <Button onClick={clearData}>Yes</Button>
+                            <Button onClick={handleModalOpen}>No</Button>
+                        </Typography>
                     </div>
                 </Box>
             </Modal>

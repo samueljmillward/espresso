@@ -1,7 +1,5 @@
 # Espresso Tracker
 
-![App screenshot](https://imgur.com/a/XMpqaX1)
-
 A data tracking [React](https://reactjs.org/) application aimed at Home Baristas having trouble tracking the endless variables affecting the espresso brewing process.
 
 ## Data Input
