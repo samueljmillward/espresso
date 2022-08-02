@@ -19,8 +19,8 @@ const Navbar = () => {
             </Icon>
 
             <Menu isOpen={isOpen}>
-                <MenuLink href='/beans'>My Beans</MenuLink>
-                <MenuLink href='/brews'>Pull A Shot</MenuLink>
+                <MenuLink to='/beans'>My Beans</MenuLink>
+                <MenuLink to='/brews'>Pull A Shot</MenuLink>
             </Menu>
         </Nav>
     );
@@ -28,7 +28,7 @@ const Navbar = () => {
 
 export default Navbar;
 
-const MenuLink = styled.a`
+const MenuLink = styled(RouterLink)`
     padding: 1rem 2rem;
     cursor: pointer;
     text-align: center;
