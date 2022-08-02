@@ -89,15 +89,6 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-export const defaultValues = {
-    name: 'Old Brown Java',
-    dryWeight: 18,
-    grind: 3,
-    weight: 36,
-    notes: 'Slightly bitter',
-    brewDate: new Date(Date.UTC(2021, 4, 15)),
-};
-
 export default function NewShot({ setBrewsList }) {
     const classes = useStyles();
 
@@ -185,7 +176,6 @@ export default function NewShot({ setBrewsList }) {
                             inputRef={register({
                                 maxLength: 30,
                             })}
-                            defaultValue={defaultValues.name}
                             name='name'
                             id='name'
                             label='Name'
@@ -205,7 +195,6 @@ export default function NewShot({ setBrewsList }) {
                                         max: 30,
                                     })}
                                     name='dryWeight'
-                                    defaultValue={defaultValues.dryWeight}
                                     type='number'
                                     pattern='^-?[0-9]\d*\.?\d*$'
                                     aria-describedby='outlined-weight-helper-text'
@@ -226,7 +215,6 @@ export default function NewShot({ setBrewsList }) {
                                     max: 30,
                                 })}
                                 name='grind'
-                                defaultValue={defaultValues.grind}
                                 type='number'
                                 pattern='^-?[0-9]\d*\.?\d*$'
                                 variant='outlined'
@@ -244,7 +232,6 @@ export default function NewShot({ setBrewsList }) {
                                 onChange={handleChange('weight')}
                                 rules={{ required: true, maxLength: 2, min: 1, max: 80 }}
                                 name='weight'
-                                defaultValue={defaultValues.weight}
                                 type='number'
                                 control={control}
                                 pattern='^-?[0-9]\d*\.?\d*$'
@@ -258,11 +245,9 @@ export default function NewShot({ setBrewsList }) {
                         </div>
                         <TextField
                             className={classes.padding}
-                            autoFocus
                             margin='dense'
                             inputRef={register}
                             name='notes'
-                            defaultValue={defaultValues.notes}
                             id='notes'
                             label='Notes'
                             type='text'
@@ -278,7 +263,6 @@ export default function NewShot({ setBrewsList }) {
                                     format='dd/MM/yyyy'
                                     margin='normal'
                                     name='brewDate'
-                                    defaultValue={defaultValues.brewDate}
                                     control={control}
                                     id='date-picker-inline'
                                     label='Brewed on: '
