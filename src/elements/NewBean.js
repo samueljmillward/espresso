@@ -73,6 +73,15 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
+export const defaultValues = {
+    name: '',
+    origin: '',
+    weight: 0,
+    roastDate: new Date(),
+    flavours: '',
+    notes: '',
+};
+
 export default function NewBean({ setBeansList }) {
     const classes = useStyles();
 
@@ -157,6 +166,7 @@ export default function NewBean({ setBeansList }) {
                             autoFocus
                             margin='dense'
                             inputRef={register}
+                            defaultValue={defaultValues.name}
                             name='name'
                             id='name'
                             label='Name'
@@ -165,8 +175,10 @@ export default function NewBean({ setBeansList }) {
                         />
                         <p className={classes.errorMessage}>{errors.name?.message}</p>
                         <TextField
+                            autoFocus
                             margin='dense'
                             inputRef={register}
+                            defaultValue={defaultValues.origin}
                             name='origin'
                             id='origin'
                             label='Origin'
@@ -183,6 +195,7 @@ export default function NewBean({ setBeansList }) {
                                     format='dd/MM/yyyy'
                                     margin='normal'
                                     name='roastDate'
+                                    defaultValue={defaultValues.roastDate}
                                     control={control}
                                     id='date-picker-inline'
                                     label='Roast Date:'
@@ -194,9 +207,11 @@ export default function NewBean({ setBeansList }) {
                                     }}
                                 />
                                 <TextField
+                                    autoFocus
                                     margin='dense'
                                     inputRef={register}
                                     name='flavours'
+                                    defaultValue={defaultValues.flavours}
                                     id='flavours'
                                     label='Flavours'
                                     type='text'
@@ -212,6 +227,7 @@ export default function NewBean({ setBeansList }) {
                             onChange={handleChange('weight')}
                             name='weight'
                             control={control}
+                            defaultValue={defaultValues.weight}
                             endAdornment={<InputAdornment position='end'>g</InputAdornment>}
                             aria-describedby='outlined-weight-helper-text'
                             inputProps={{
@@ -222,9 +238,11 @@ export default function NewBean({ setBeansList }) {
                         <p className={classes.errorMessage}>{errors.weight?.message}</p>
                         <TextField
                             className={classes.padding}
+                            autoFocus
                             margin='dense'
                             inputRef={register}
                             name='notes'
+                            defaultValue={defaultValues.notes}
                             id='notes'
                             label='Notes'
                             type='text'
